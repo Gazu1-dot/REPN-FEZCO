@@ -281,3 +281,10 @@ Auf ausdrücklichen Wunsch wurde das bestehende illustrative Geothermie-Motiv mi
 Neue prozedurale Three.js-Szene: generisches Feld, Bohrlochkopf, Formation, Verrohrung, Produktionsrohr und ESP-Baugruppen. Die Kataloginformationen begründen die Funktionen und die grobe Baugruppenfolge, nicht die konkrete Geometrie. Es wurden keine Hersteller-CAD-Daten bereitgestellt. Geometrieabmessungen, Anzahl sichtbarer Pumpenstufen, Motordetails, geologische Schichten und Animationsgeschwindigkeit sind rein illustrativ. Die öffentliche Ansicht ist als konzeptionelle, nicht maßstäbliche 3D-Darstellung gekennzeichnet.
 
 Die technischen Produktdaten, Kabelausführungen, Downloads, E-Mail-Funktion und Formularvorlage sind gegenüber Version 18 unverändert. Es wurden für diese gestalterische Erweiterung keine neuen technischen Grenzwerte, Leistungsbehauptungen oder Standortangaben hinzugefügt. Das Feldfoto aus Version 17.8 bleibt als Lade-/Ersatzbild und Anwendungsmotiv enthalten.
+
+
+## Industriefeld und Parallax – Version 20
+
+Gestalterische Weiterentwicklung der ausgelieferten Version 19. Die Feldszene wurde mit eigener prozeduraler Geometrie neu aufgebaut: felsiges Gelände mit Bergrücken, befestigte Bohrplätze, Rohrtrassen auf Tragwerken und offene Prozessskids. Es ist kein reales REPN-Projekt und keine maßstäbliche Anlagenplanung. Komponentenfunktionen und technische Angaben bleiben aus dem bisherigen Datenbestand erhalten; aus der zusätzlichen Oberflächenausstattung wird kein Lieferumfang abgeleitet.
+
+Keine neuen Quellen für Leistungs- oder Auslegungswerte. Alle 44 Dateien aus public, api, lib und vercel.json sind gegenüber Version 19 byte-identisch. Die Bilddateien bleiben unverändert; verändert wurden die codegenerierte 3D-Szene sowie Komposition, Farben und Bewegung der Homepage.

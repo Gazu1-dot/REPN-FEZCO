@@ -261,6 +261,11 @@
     "source": "Original procedural Three.js geometry created for version 19; no manufacturer CAD model supplied",
     "purpose": "Conceptual field-to-well-to-ESP exploded-view story; not a real site, dimensioned drawing or exact REPN product representation",
     "construction": "Generic wellheads, pipelines, graded pads, surface cabinet, geological section, casing, production tubing, pump, protector, motor and three-core cable",
-    "limitations": "Dimensions, layer proportions, stage counts, winding details and flow animation are illustrative. Published product specifications remain on the unchanged product pages. No performance values inferred from the 3D geometry."
+    "limitations": "Dimensions, layer proportions, stage counts, winding details and flow animation are illustrative. Published product specifications remain on the unchanged product pages. No performance values inferred from the 3D geometry.",
+    "usage_v20": {
+      "construction": "Rocky graded industrial wellfield; terrain ridges, structural pipe racks, open process skids, pressure vessels, platforms, railings, ladders, instruments and ribbed switchgear enclosure. Static geometry batched by material.",
+      "presentation": "Revised camera framing, subdued material and light palette, bounded pointer parallax. Procedural geometry, not a generated photograph or manufacturer CAD.",
+      "claims": "Illustrative environment only; no real-site attribution or additional product specifications. Existing image assets unchanged."
+    }
   }
 ]

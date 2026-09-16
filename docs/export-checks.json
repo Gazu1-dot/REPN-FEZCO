@@ -1,14 +1,14 @@
 {
-  "version": "0.19.0",
-  "base": "0.18.0",
-  "scope": "Desktop 3D scene and scroll-driven homepage; no new mobile experience",
+  "version": "0.20.0",
+  "base": "0.19.0",
+  "scope": "Desktop industrial 3D environment, native scroll parallax and homepage composition; no new mobile experience",
   "production_build": "passed",
   "typescript": "passed",
   "eslint": "passed",
   "geometry_checks": {
     "finiteGeometry": true,
-    "meshes": 400,
-    "triangles": 70770,
+    "meshes": 300,
+    "triangles": 113702,
     "cameraContinuity": true,
     "reversibleTransforms": true,
     "chapterCount": 9,
@@ -49,6 +49,11 @@
       "nine scroll chapters",
       "five component jumps and product links",
       "ambient pause/resume",
+      "shared page motion state",
+      "parallax movement and reset",
+      "pointer tilt and reset",
+      "four page section shortcuts",
+      "reduced-motion preference and restore",
       "previous/next chapter controls",
       "skip to equipment",
       "oil application and distinct cable content",
@@ -60,16 +65,19 @@
     "webglNote": "The WebGL-unavailable path was tested. No GPU context is available in this DOM runtime."
   },
   "static_export": {
-    "links": 375,
+    "links": 376,
     "images": 65,
     "broken": [],
     "protected_files_identical": 44,
     "changed": [
+      "README.md",
       "app/homepage-experience.css",
+      "asset-sources.json",
       "components/repn/esp-diagram.tsx",
       "components/repn/premium-hero.tsx",
       "components/repn/site.tsx",
       "components/repn/system-explorer.tsx",
+      "docs/QUELLEN.md",
       "package-lock.json",
       "package.json"
     ]
@@ -79,9 +87,9 @@
     "byte_identical": true,
     "desktop_only_shell": true,
     "shellRuntimeErrors": [],
-    "html_bytes": 10236889
+    "html_bytes": 10257784
   },
-  "visual_review": "Native SVG geometry projections inspected; no WebGL screenshot",
+  "visual_review": "Native SVG geometry projections inspected; limitations from painter sorting, no WebGL screenshot",
   "browser_gpu_test": false,
   "source_package_files": 99,
   "new_github_comparison": false,
