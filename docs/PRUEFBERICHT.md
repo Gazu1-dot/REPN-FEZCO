@@ -1,25 +1,23 @@
-# Prüfbericht – Version 18
+# Prüfbericht – Version 19 / Desktop 3D
 
-Datum: 16.09.2026. Basis: ausgeliefertes ZIP Version 17.8. Schwerpunkt: neue Scroll-Startseite.
+Datum: 16.09.2026. Ausgangsstand: ausgeliefertes ZIP Version 18.
 
-## Durchgeführt
+## Bestanden
 
-- `npm ci`, Produktions-Build und statischer Export mit Next.js 16.2.6: erfolgreich.
-- TypeScript-Prüfung im Produktions-Build und `npm run lint`: erfolgreich.
-- DOM-Prüfung der aus denselben React-Komponenten gebauten Vorschau: eine Hauptüberschrift, zwei Anwendungseinstiege, fünf Scroll-Schritte, Komponentenwechsel für alle fünf Positionen, direkte Anwahl samt Fokus, Pause/Fortsetzen der ESP- und Hintergrundanimation, Beibehaltung des Pausenzustands beim Komponentenwechsel und Scroll-Fortschritt.
-- Navigation von der neuen Oil-&-Gas-Karte zur passenden Equipment-Auswahl und Kabelseite; korrekter Titel „Power transmission“, eigene EPR-Kabeldaten und 230-°C-Angabe.
-- Vier PDF-Downloads vorhanden; Anfrageformular, Word-Link und Rückweg zur Startseite geprüft.
-- 382 interne Links und 65 Bildreferenzen im statischen Export geprüft: keine fehlenden Ziele.
-- 44 geschützte Quelldateien aus `public`, `api`, `lib` sowie `vercel.json` mit Version 17.8 verglichen: byte-identisch. Dazu gehören alle technischen Daten, Fotos, PDFs, die Word-Vorlage und die Versandimplementierung.
-- HTML-Vorschau: 33 eingebettete Dateien byte-identisch mit den Quelldateien, iframe-Inhalt erzeugt, Desktop-/Handy-Umschaltung geprüft, keine erfassten JavaScript-Laufzeitfehler.
-- CSS enthält angepasste Desktop-, Tablet-, Handy- und geringe Bildschirmhöhen-Darstellungen sowie `prefers-reduced-motion`. Inhalte bleiben auch ohne Einblendanimation sichtbar.
+- Next.js-Produktions-Build und TypeScript-Prüfung.
+- ESLint.
+- Geometrie: 400 Mesh-Objekte, rechnerisch 70.770 Dreiecke einschließlich Instanzen; alle geprüften Positionswerte endlich. Dies ist keine Bildratenmessung.
+- Neun Kamera-/Informationskapitel, stetige Übergänge an den Kameraschlüsseln, reversible Baugruppenpositionen beim Vorwärts-/Rückwärtsscrollen.
+- Aktive Baugruppen liegen an den fünf Komponentenschritten im vorgesehenen sichtbaren Bereich der Kamera.
+- DOM: dauerhafte Hauptüberschrift, WebGL-unavailable-Ersatzansicht, neun Scroll-Kapitel, fünf Direktanwahlen, Produktlinks, Pause-/Fortsetzen-Schalter, Vor-/Zurück-Steuerung, Überspringen zur Anwendungsauswahl, Oil-&-Gas-Kabelansicht, vier PDF-Downloads, Anfrageformular/Word-Link und Rückweg zur Startseite.
+- 375 interne Links und 65 Bildreferenzen im Export: keine fehlenden Ziele.
+- 44 Dateien aus `public`, `api`, `lib` sowie `vercel.json` gegenüber Version 18 byte-identisch.
+- Desktop-HTML: 33 eingebettete Dateien byte-identisch mit den Quelldateien; Vorschauhülle erzeugt den iframe ohne erfasste JavaScript-Fehler. Keine Handy-Umschaltung.
 
-## Grenzen der Prüfung
+## Visuelle und funktionale Grenzen
 
-Die Scroll-Positionswechsel wurden mit simulierten Elementpositionen im DOM geprüft. Dies ersetzt keine echte Layout- oder Browserprüfung. Es wurde in dieser Sitzung kein visueller Browsertest durchgeführt. Bildzuschnitt, Sticky-Verhalten, Umbrüche und Druckdarstellung sollten deshalb vor Veröffentlichung in der Vorschau bzw. auf den Zielgeräten kontrolliert werden.
+Native SVG-Projektionen der Three.js-Geometrie wurden zur Kontrolle von Kameraausschnitten, Wellhead, Formation, Explosionsabständen und Innenbaugruppen erzeugt und geprüft. Auf dieser Basis wurden Tubing-Restteile beseitigt sowie der Übergang der Formation und die Position des Schaltschranks angepasst. Solche Projektionen ersetzen keine WebGL-Darstellung und zeigen Materialien, Schatten und Tiefensortierung anders als der GPU-Renderer.
 
-Kein neuer GitHub-Abgleich, keine Veröffentlichung und kein echter E-Mail-Versand. Die bereits gelieferte Versandfunktion wurde unverändert übernommen; ihre Live-Konfiguration und Zustellung wurden hier nicht erneut getestet.
+Es fand **kein WebGL-Browser-/GPU-Test** statt. Beleuchtung, Materialwirkung, Bildrate, Sticky-Verhalten, Zeigerbedienung und endgültige Desktop-Umbrüche sind deshalb vor Veröffentlichung im Browser zu prüfen. Im DOM-Test wurde der nicht verfügbare WebGL-Kontext gezielt simuliert, nicht der erfolgreiche GPU-Renderpfad. Eine Handyversion war ausdrücklich nicht Teil der Aufgabe.
 
-## Paket
-
-99 Quelldateien. Änderungen: neue Startseitenstruktur, Hero- und Scroll-Komponenten, Startseiten-CSS, Versionsangaben und Dokumentation. Keine neuen Herstellerangaben, technischen Grenzwerte oder Datenblattänderungen.
+Kein neuer GitHub-Abgleich, keine Veröffentlichung, kein echter E-Mail-Versand. Hersteller-CAD, maßstäbliche Anlagengeometrie und Installationsfreigabe liegen nicht vor; sämtliche 3D-Details sind illustrativ.

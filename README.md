@@ -1,59 +1,52 @@
-# REPN-FZCO Website – Version 18
+# REPN-FZCO Website – Version 19 / Desktop 3D
 
-Neue Scroll-Startseite auf Basis des ausgelieferten Pakets **17.8**. Die vorhandenen Produktseiten, technischen Daten, Bilder, PDF-Downloads, Word-Vorlage und E-Mail-Funktion wurden übernommen. Für diese Gestaltung erfolgte kein neuer Abgleich mit GitHub `main`.
+Separate Desktop-Fassung auf Basis des ausgelieferten Pakets Version 18. Noch nicht veröffentlicht. Kein neuer Abgleich mit dem aktuellen GitHub-Stand. Die vorhandenen technischen Produktseiten und Dokumente bleiben enthalten.
 
-## Neue Startseite
+## Neue 3D-Sequenz
 
-- Großflächiger Einstieg mit dem überarbeiteten Geothermal-Motiv, ruhiger Bildbewegung und Pause-Schalter.
-- Zwei klar getrennte Einstiege für Geothermal und Oil & Gas.
-- ESP-Erklärung über fünf Scroll-Schritte: Surface control, Power cable, ESP pump, Protector, Motor. Die Zeichnung bleibt auf geeigneten Bildschirmgrößen stehen; die besprochene Komponente wird hervorgehoben. Alle Schritte lassen sich direkt anwählen.
-- Kompakte Darstellung auf dem Handy; bei niedrigen Displays bleibt die Grafik im normalen Seitenfluss.
-- Abschnitte für Projektunterstützung, technische Downloads und Anfrage.
-- Native Scroll-Bedienung ohne Scroll-Sperre oder erzwungenes Einrasten. Berücksichtigung der Systemeinstellung für reduzierte Bewegung, sichtbare Tastaturfokusse und pausierbare Animationen.
+1. Überblick über ein generisches Feld mit Leitungen und Wellheads.
+2. Kamerafahrt zum zentralen Bohrlochkopf.
+3. Abstieg in eine konzeptionelle Schnittansicht mit Formation, Verrohrung und ESP-Anlage.
+4. Explosionsdarstellung: Baugruppen trennen sich, Gehäusesegmente öffnen die Sicht auf das Innere.
+5. Einzelansichten für Motor, Protektor, Pumpe, Kabel und Oberflächensteuerung, jeweils mit Funktionsbeschreibung und Link zu den bestehenden Spezifikationen.
 
-Das Feldmotiv ist eine KI-generierte Illustration, keine Aufnahme einer realen REPN-Anlage. Die ESP-Grafik ist ein konzeptioneller, nicht maßstäblicher Schnitt. Herkunft und technische Abgrenzungen stehen weiterhin in `asset-sources.json` und `docs/QUELLEN.md`.
+Die Sequenz wird über den normalen Dokument-Scroll gesteuert. Kapitel, Vor/Zurück-Tasten und Komponenten sind direkt anwählbar. „Skip to equipment“ überspringt die Sequenz. „Inspect in 3D“ erlaubt Drehen mit der Maus; nach Fokus auf der Szene funktionieren auch die Pfeiltasten. Das Mausrad bleibt für den Seitenscroll verfügbar. Der Pause-Schalter stoppt die fortlaufende Komponenten-/Strömungsanimation; manuell ausgelöste Kamerabewegungen bleiben möglich. Bei reduzierter Bewegung werden statische Kapitelansichten verwendet.
 
-## Vorschau
+Eine neue Handyversion der 3D-Sequenz wurde entsprechend der Anweisung **nicht entwickelt**. Diese Fassung ist zur Beurteilung am Desktop vorgesehen. Die vorhandenen Unterseiten behalten ihr bisheriges Layout.
 
-Die separat gelieferte Datei **REPN-FZCO_v18_Interaktive_Vorschau.html** herunterladen und in einem aktuellen Browser öffnen. Oben lassen sich Desktop- und Handyansicht auswählen. Bilder, Schriften und Downloads sind eingebettet; für die Darstellung wird kein Server benötigt. Interne Navigation, Anwendungsauswahl und die Scroll-Interaktion funktionieren in der Vorschau.
+## Darstellung und technische Genauigkeit
 
-Die lokale Vorschau sendet keine E-Mails. Der tatsächliche Versand erfolgt nur über die konfigurierte Vercel-Funktion der veröffentlichten Website.
+Die 3D-Szene ist schematisch, nicht maßstäblich und nicht aus Hersteller-CAD abgeleitet. Maße, Anzahl sichtbarer Stufen, Motorinnenteile und Formationsschichten sind Illustrationen. Sie dürfen nicht für Auslegung, Fertigung oder Montage verwendet werden. Das Feld ist kein dokumentierter REPN-Standort. Die produktbezogenen Angaben bleiben auf den unveränderten Spezifikationsseiten und in den Datenblättern.
 
-## In GitHub einspielen
+## Desktop-Vorschau öffnen
 
-1. ZIP entpacken und den Ordner `REPN-FZCO_Website_v18` öffnen.
-2. Den gesamten Inhalt in das Hauptverzeichnis von `Gazu1-dot/REPN-FEZCO_1` hochladen und gleichnamige Dateien ersetzen. Nicht die ZIP oder den übergeordneten Ordner hochladen.
-3. Commit durchführen und das neue Vercel-Deployment mit Status **Ready** abwarten.
-4. Startseite auf Desktop und Handy durchgehen. Beide Anwendungen, Produktlinks und Downloads öffnen.
-5. Wenn der E-Mail-Versand geprüft werden soll: eine Testanfrage ausfüllen, **Send enquiry** betätigen und Eingang sowie Word-Anhang bei `office@repnfzco.com` kontrollieren.
+**REPN-FZCO_v19_Desktop_3D_Vorschau.html** herunterladen und im Desktop-Browser öffnen. Die 3D-Ansicht benötigt WebGL 2. Die Datei enthält das Skript, die Geometrieerzeugung, Schriften, Bilder und Downloads und benötigt für die Vorschau keinen Webserver und kein CDN.
 
-Die vorhandenen Production-Variablen werden weiterverwendet:
+Bei nicht verfügbarem WebGL erscheint ein Ersatzbild samt Hinweis; Beschreibungskapitel und Links bleiben bedienbar. Die Vorschau sendet keine E-Mails. Der echte Versand erfordert die konfigurierte Vercel-Serverfunktion.
 
-| Key | Value |
-| --- | --- |
-| `RESEND_API_KEY` | Der geheime Versand-API-Schlüssel aus Resend |
-| `REPN_ENQUIRY_FROM` | `REPN-FZCO <office@repnfzco.com>` |
+## Im Testprojekt einsetzen
 
-Die Serverfunktion, Vercel-Konfiguration und Word-Erstellung sind gegenüber Version 17.8 byte-identisch. Es wurde kein echter E-Mail-Versand ausgelöst und kein Deployment gestartet.
+1. ZIP entpacken und `REPN-FZCO_Website_v19` öffnen.
+2. Den **Inhalt** des Ordners in das Hauptverzeichnis des Test-Repositorys `Gazu1-dot/REPN-FEZCO` hochladen und gleichnamige Dateien ersetzen. Nicht den übergeordneten Ordner hochladen.
+3. Deployment des verbundenen Projekts `repn-fezco-test` abwarten bzw. dort aus `main` starten.
+4. Kamerafahrt, Explosionsansicht, Inspektionsmodus, Navigation und Downloads im Desktop-Browser prüfen.
 
-## Anfrage und technische Daten
+Die E-Mail-Funktion ist unverändert. Für echten Versand benötigt dieses Vercel-Projekt eigene passend gesetzte Variablen `RESEND_API_KEY` und `REPN_ENQUIRY_FROM`; Variablen eines anderen Projekts gelten hier nicht automatisch. Diese Werte wurden weder gelesen noch verändert. Es wurde keine Nachricht versendet.
 
-- Die getrennten Kabeldaten für Geothermal und Oil & Gas aus Version 17.7/17.8 sind erhalten. Unterschiedliche Referenzkonstruktionen werden nicht vermischt.
-- **Download enquiry** erzeugt eine ausgefüllte Word-Datei aus derselben Vorlage wie **Download questionnaire**.
-- **Print questionnaire** erzeugt die Druckansicht aus derselben ausgefüllten DOCX mit den eingebetteten Zeichnungen. Auch eine leere Vorlage kann gedruckt werden.
-- **Send enquiry** erstellt die DOCX auf dem Server und sendet sie an `office@repnfzco.com`. Die Kundenadresse wird als Antwortadresse verwendet.
-- **Open email app** lädt die DOCX herunter und öffnet einen Entwurf. Bei dieser Alternative muss die Datei selbst angehängt werden.
-
-## Entwicklung und Prüfung
+## Entwicklung
 
 - Node.js 22.x oder 24.x
-- Abhängigkeiten: `npm ci`
-- Produktions-Export: `npm run build`
-- Lokal: `npm run dev`
-- ESLint: `npm run lint`
+- `npm ci`
+- `npm run build` — statischer Next.js-Export
+- `npm run dev` — lokale Next.js-Ansicht; die eigenständige Vercel-Funktion läuft hierbei nicht
+- `npm run lint`
 
-Vercel nutzt das Framework-Preset Other, den statischen Next-Export und die eigenständige Funktion `api/enquiry.ts`. `npm run dev` startet nur Next.js, nicht diese Vercel-Funktion.
+Three.js 0.186.0 ist fest in den Abhängigkeiten hinterlegt. Die Szene wird im Browser aufgebaut; keine externen 3D-Modelle oder Laufzeit-CDNs. Pixelauflösung ist begrenzt, und außerhalb des sichtbaren Bereichs bzw. bei verborgenem Browser-Tab pausiert die Render-Schleife. Ressourcen werden beim Verlassen der Seite freigegeben.
 
-Build, TypeScript und ESLint bestanden. Gezielte DOM-Prüfungen kontrollieren die Scroll-Auswahl, Direktanwahl, Pause-Schalter und Navigation. Alle internen Links und Bilder im Export wurden auf vorhandene Ziele geprüft. Eine visuelle Browserprüfung wurde in dieser Sitzung nicht durchgeführt; Darstellungsdetails sollten in der HTML-Vorschau auf den gewünschten Geräten geprüft werden.
+## Prüfstand
 
-Das ZIP enthält **99 Quelldateien**, ohne Build-Ausgabe oder Abhängigkeiten. Prüfdetails: `docs/PRUEFBERICHT.md` und `docs/export-checks.json`.
+Produktions-Build, TypeScript und ESLint bestanden. Neun Kamerakapitel, Geometrie, kontinuierliche Kameraübergänge und reversible Explosionspositionen wurden geprüft. Native SVG-Projektionen dienten der visuellen Kontrolle von Bildausschnitten und Baugruppen; sie bilden WebGL-Materialien und Schatten nicht vollständig ab. DOM-Prüfungen decken die Kapitelsteuerung, den WebGL-Ersatzfall, Navigation und Downloadziele ab.
+
+**Ein echter WebGL-Browser-/GPU-Test wurde hier nicht durchgeführt.** Die tatsächliche Beleuchtung, Materialwirkung, Bildrate, Sticky-Darstellung und Mausinteraktion müssen vor Veröffentlichung auf dem Zielgerät beurteilt werden. Keine Behauptung eines bestandenen visuellen Browsertests.
+
+99 Quelldateien, ohne Abhängigkeiten oder Build-Ausgabe. Details stehen in `docs/PRUEFBERICHT.md` und `docs/export-checks.json`.

@@ -255,5 +255,12 @@
     "purpose": "Manual code-native schematic with references 8–14. Optional operating-data guide, not to scale or model-specific. Pump installation reference point to be stated by customer.",
     "usage_v17_3": "Opens with Additional operating information; matching field numbers and print inclusion.",
     "usage_v17_4": "Requested timing, calendar and marker 15 removed at user request. References 8–14 retained."
+  },
+  {
+    "asset": "Procedural desktop 3D scene in components/repn/esp-diagram.tsx",
+    "source": "Original procedural Three.js geometry created for version 19; no manufacturer CAD model supplied",
+    "purpose": "Conceptual field-to-well-to-ESP exploded-view story; not a real site, dimensioned drawing or exact REPN product representation",
+    "construction": "Generic wellheads, pipelines, graded pads, surface cabinet, geological section, casing, production tubing, pump, protector, motor and three-core cable",
+    "limitations": "Dimensions, layer proportions, stage counts, winding details and flow animation are illustrative. Published product specifications remain on the unchanged product pages. No performance values inferred from the 3D geometry."
   }
 ]

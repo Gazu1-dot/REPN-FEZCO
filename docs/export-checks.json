@@ -1,55 +1,102 @@
 {
-  "version": "0.18.0",
-  "base": "0.17.8",
-  "change": "Native scroll homepage and sticky five-part ESP explanation",
+  "version": "0.19.0",
+  "base": "0.18.0",
+  "scope": "Desktop 3D scene and scroll-driven homepage; no new mobile experience",
   "production_build": "passed",
   "typescript": "passed",
   "eslint": "passed",
+  "geometry_checks": {
+    "finiteGeometry": true,
+    "meshes": 400,
+    "triangles": 70770,
+    "cameraContinuity": true,
+    "reversibleTransforms": true,
+    "chapterCount": 9,
+    "activePartProjections": [
+      {
+        "part": "motors",
+        "x": 0.37999999999999995,
+        "y": 0
+      },
+      {
+        "part": "protectors",
+        "x": 0.38000000000000017,
+        "y": -3.984911812368408e-16
+      },
+      {
+        "part": "pumps",
+        "x": 0.38,
+        "y": 0
+      },
+      {
+        "part": "cables",
+        "x": 0.4218992372208818,
+        "y": 0.08309855747342083
+      },
+      {
+        "part": "controls",
+        "x": 0.3800000000000002,
+        "y": -0.048314218252245016
+      }
+    ],
+    "webglRenderTest": false
+  },
   "functional_dom_checks": {
     "passed": true,
     "checks": [
-      "homepage sections and single h1",
-      "five scroll-driven components",
-      "manual component jump and focus",
-      "system pause/resume and persistence",
-      "hero pause/resume",
-      "scroll progress",
-      "oil application link and power heading",
-      "separate oil cable content",
+      "single persistent h1",
+      "WebGL-unavailable fallback",
+      "nine scroll chapters",
+      "five component jumps and product links",
+      "ambient pause/resume",
+      "previous/next chapter controls",
+      "skip to equipment",
+      "oil application and distinct cable content",
       "four PDF downloads",
-      "contact form and DOCX link retained",
-      "navigation back home"
+      "enquiry form and Word download",
+      "navigation back to 3D homepage"
     ],
-    "runtimeErrors": []
+    "unexpectedRuntimeErrors": [],
+    "webglNote": "The WebGL-unavailable path was tested. No GPU context is available in this DOM runtime."
   },
   "static_export": {
-    "internal_links_checked": 382,
-    "image_references_checked": 65,
-    "broken_targets": []
+    "links": 375,
+    "images": 65,
+    "broken": [],
+    "protected_files_identical": 44,
+    "changed": [
+      "app/homepage-experience.css",
+      "components/repn/esp-diagram.tsx",
+      "components/repn/premium-hero.tsx",
+      "components/repn/site.tsx",
+      "components/repn/system-explorer.tsx",
+      "package-lock.json",
+      "package.json"
+    ]
   },
-  "protected_baseline_files_byte_identical": 44,
   "interactive_preview": {
     "embedded_files": 33,
     "byte_identical": true,
-    "shell_checks": [
-      "iframe source generated",
-      "desktop/mobile controls",
-      "no shell runtime errors"
-    ],
-    "browser_visual_check": false
+    "desktop_only_shell": true,
+    "shellRuntimeErrors": [],
+    "html_bytes": 10236889
   },
-  "browser_visual_check": false,
-  "live_email_test": false,
+  "visual_review": "Native SVG geometry projections inspected; no WebGL screenshot",
+  "browser_gpu_test": false,
+  "source_package_files": 99,
   "new_github_comparison": false,
   "deployed": false,
-  "source_package_files": 99,
+  "email_function": "unchanged; no live email test",
   "changed_files": [
     "README.md",
     "app/homepage-experience.css",
+    "asset-sources.json",
+    "components/repn/esp-diagram.tsx",
     "components/repn/premium-hero.tsx",
     "components/repn/site.tsx",
     "components/repn/system-explorer.tsx",
     "docs/PRUEFBERICHT.md",
+    "docs/QUELLEN.md",
     "docs/export-checks.json",
     "package-lock.json",
     "package.json"

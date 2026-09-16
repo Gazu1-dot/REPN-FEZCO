@@ -274,3 +274,10 @@ ESP-Visualisierung: Überarbeitung des bestehenden SVG, keine produkt- oder maß
 ## Hintergrundbild – Version 17.8
 
 Auf ausdrücklichen Wunsch wurde das bestehende illustrative Geothermie-Motiv mit dem integrierten imagegen bearbeitet. Das Ergebnis bleibt generiert, ohne Behauptung eines realen Standorts oder REPN-Anlageneigentums. Natürliches Tageslicht, matte Metalloberflächen und zurückhaltendere Vegetation ersetzen die ausgeprägte Sonnenuntergangs-Inszenierung. Der Ursprung und der Bearbeitungsprompt sind in asset-sources.json dokumentiert. Originalausgabe: 1672 × 941 PNG; Webausgabe: WebP in identischen Abmessungen, ohne zusätzlichen Ausschnitt oder Retusche.
+
+
+## Desktop-3D-Sequenz – Version 19
+
+Neue prozedurale Three.js-Szene: generisches Feld, Bohrlochkopf, Formation, Verrohrung, Produktionsrohr und ESP-Baugruppen. Die Kataloginformationen begründen die Funktionen und die grobe Baugruppenfolge, nicht die konkrete Geometrie. Es wurden keine Hersteller-CAD-Daten bereitgestellt. Geometrieabmessungen, Anzahl sichtbarer Pumpenstufen, Motordetails, geologische Schichten und Animationsgeschwindigkeit sind rein illustrativ. Die öffentliche Ansicht ist als konzeptionelle, nicht maßstäbliche 3D-Darstellung gekennzeichnet.
+
+Die technischen Produktdaten, Kabelausführungen, Downloads, E-Mail-Funktion und Formularvorlage sind gegenüber Version 18 unverändert. Es wurden für diese gestalterische Erweiterung keine neuen technischen Grenzwerte, Leistungsbehauptungen oder Standortangaben hinzugefügt. Das Feldfoto aus Version 17.8 bleibt als Lade-/Ersatzbild und Anwendungsmotiv enthalten.

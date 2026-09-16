@@ -1,103 +1,163 @@
-export type EspPart = "controls" | "cables" | "pumps" | "protectors" | "motors";
+import * as T from "three";
 
-/** Conceptual cutaway: relative component order and flow direction, not installation dimensions. */
-export function EspDiagram({active}:{active:EspPart}) {
- const edge=(part:EspPart)=>active===part?"#9eedc3":"#93a6ae";
- const bolts=(y:number)=>[355,365,392,402].map(x=><g key={x}><rect x={x-2} y={y} width="4" height="9" rx="1" fill="#253b47"/><path d={`M${x-1} ${y+1}v7`} stroke="#d8e0dc" strokeWidth="1"/></g>);
- const power="M490 130H460Q425 130 425 160V526H400";
- return <svg id="esp-system-drawing" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 620" aria-hidden="true" focusable="false">
-  <defs>
-   <linearGradient id="esp-metal"><stop stopColor="#263e49"/><stop offset=".16" stopColor="#748b94"/><stop offset=".32" stopColor="#e1e9e8"/><stop offset=".43" stopColor="#a2b3b9"/><stop offset=".7" stopColor="#5c747f"/><stop offset=".88" stopColor="#364f5a"/><stop offset="1" stopColor="#192f3b"/></linearGradient>
-   <linearGradient id="esp-flange" x2="0" y2="1"><stop stopColor="#d1dcd9"/><stop offset=".38" stopColor="#84989f"/><stop offset=".65" stopColor="#324b56"/><stop offset="1" stopColor="#152c39"/></linearGradient>
-   <linearGradient id="esp-rock" x2="0" y2="1"><stop stopColor="#3c4c49"/><stop offset=".4" stopColor="#223e43"/><stop offset="1" stopColor="#122c3b"/></linearGradient>
-   <linearGradient id="esp-copper"><stop stopColor="#765140"/><stop offset=".4" stopColor="#e9b987"/><stop offset=".6" stopColor="#bc8152"/><stop offset="1" stopColor="#50352b"/></linearGradient>
-   <linearGradient id="esp-ground-fade"><stop stopColor="#19313e" stopOpacity="0"/><stop offset=".28" stopColor="#476154" stopOpacity=".55"/><stop offset="1" stopColor="#355747" stopOpacity=".3"/></linearGradient>
-   <radialGradient id="esp-halo"><stop stopColor="#75dda7" stopOpacity=".2"/><stop offset="1" stopColor="#75dda7" stopOpacity="0"/></radialGradient>
-   <pattern id="esp-rock-grain" width="37" height="29" patternUnits="userSpaceOnUse"><path d="M2 9l8 -2m12 14l10 -3M17 4l4 1M4 25l3 -1" stroke="#91a28d" strokeWidth=".7" opacity=".15"/><circle cx="25" cy="8" r=".8" fill="#c1ba91" opacity=".16"/></pattern>
-   <pattern id="esp-cement" width="7" height="9" patternUnits="userSpaceOnUse"><path d="M0 9L7 0" stroke="#74908d" strokeWidth="1" opacity=".4"/></pattern>
-  </defs>
-  {/* Surface terrain and sectioned formation. */}
-  <path d="M259 147l38 -24 27 7 44 -29 43 15 24 -8 40 20 31 -10 76 34v20H259Z" fill="url(#esp-ground-fade)"/>
-  <path d="M282 175H590V597H282Z" fill="url(#esp-rock)"/>
-  <path d="M282 215Q379 196 476 218T590 224V282Q493 299 417 277T282 288Z" fill="#665e49" opacity=".25"/>
-  <path d="M282 325Q385 295 490 326T590 325V376Q490 391 412 369T282 386Z" fill="#6e7861" opacity=".17"/>
-  <path d="M282 454Q392 432 481 454T590 462V548Q472 517 401 547T282 545Z" fill="#7e7752" opacity=".2"/>
-  <path d="M282 175H590V597H282Z" fill="url(#esp-rock-grain)"/>
-  {[216,284,331,378,458,540].map((y,i)=><path key={y} d={`M282 ${y}Q386 ${y-22} 474 ${y+3}T590 ${y+8}`} fill="none" stroke={i%2?"#9a9972":"#86958a"} strokeOpacity=".16"/ >)}
-  {/* Cement sheath, steel casing and fluid-filled annulus. */}
-  <path d="M302 178H451V597H302Z" fill="#52615c"/>
-  <path d="M302 178H451V597H302Z" fill="url(#esp-cement)"/>
-  <rect x="311" y="178" width="132" height="419" fill="#0b2434"/>
-  <path d="M315 178V597M439 178V597" stroke="#bed0ca" strokeWidth="3"/>
-  <path d="M320 180V596M434 180V596" stroke="#425e68" strokeWidth="2"/>
-  {[250,420,574].map(y=><path key={y} d={`M307 ${y}h11m117 0h12`} stroke="#a8b7b2" strokeWidth="6"/>)}
-  <path d="M280 170H592" stroke="#96a598" strokeWidth="3"/>
-  <rect x="328" y="165" width="99" height="12" rx="2" fill="#5b6c6c"/><path d="M328 165h99" stroke="#c1c8bb"/>
-  {/* Production tubing, wellhead, side outlet and valves. */}
-  <rect x="369" y="158" width="21" height="120" fill="url(#esp-metal)" stroke="#8da6af"/>
-  {[209,254].map(y=><rect key={y} x="366" y={y} width="27" height="7" rx="1" fill="url(#esp-flange)"/>)}
-  <rect x="354" y="133" width="48" height="32" rx="4" fill="url(#esp-metal)" stroke="#91a4a7"/>
-  <path d="M357 142H334Q324 142 324 150V157H284" fill="none" stroke="#203d4b" strokeWidth="16"/>
-  <path d="M357 139H334Q322 139 322 150V154H284" fill="none" stroke="#94a6a7" strokeWidth="9"/>
-  <rect x="346" y="133" width="8" height="19" rx="1" fill="url(#esp-flange)"/>
-  <rect x="350" y="156" width="56" height="10" rx="2" fill="url(#esp-flange)"/>{bolts(157)}
-  <rect x="367" y="119" width="24" height="15" fill="url(#esp-metal)"/><path d="M379 121V107" stroke="#899da5" strokeWidth="4"/>
-  <ellipse cx="379" cy="106" rx="18" ry="5" fill="none" stroke="#b47b4d" strokeWidth="3"/><path d="M361 106h36" stroke="#b47b4d" strokeWidth="2"/>
-  <path d="M399 147h10v-21" stroke="#8c9da1" strokeWidth="3" fill="none"/><circle cx="409" cy="122" r="9" fill="#d7dfd8" stroke="#71818a" strokeWidth="3"/><path d="M409 122l4 -4" stroke="#1e3b47" strokeWidth="1.5"/>
-  <g data-part="controls" data-active={active==="controls"}>
-   {active==="controls"&&<ellipse cx="533" cy="102" rx="90" ry="70" fill="url(#esp-halo)"/>}
-   <path d="M487 52l15 -10h80l-14 10Z" fill="#8da0a6"/><path d="M568 52l14 -10v92l-14 10Z" fill="#324c59" stroke="#778e96"/>
-   <rect x="487" y="52" width="81" height="92" rx="2" fill="url(#esp-metal)" stroke={edge("controls")} strokeWidth="1.5"/>
-   <rect x="497" y="64" width="45" height="27" rx="2" fill="#081d2b" stroke="#647e85"/>
-   <path className="esp-screen-signal" d="M502 82h8l4 -10 5 7 4 -3 4 6h10" fill="none" stroke="#8ee9b8" strokeWidth="1.4"/>
-   <circle className="esp-status-led" cx="551" cy="70" r="2.4" fill="#9fe4b1"/><rect x="550" y="94" width="4" height="15" rx="1" fill="#142f3c"/>
-   {[102,107,112,117,122].map(y=><path key={y} d={`M500 ${y}h35`} stroke="#324c59" strokeWidth="2"/>)}
-   <path d="M495 145v19m64 -19v19" stroke="#71858c" strokeWidth="5"/>
-   <path d="M484 165h87" stroke="#465e66" strokeWidth="5"/>
-  </g>
-  <g data-part="cables" data-active={active==="cables"}>
-   <path d={power} fill="none" stroke="#061a24" strokeWidth="10"/><path d={power} fill="none" stroke={active==="cables"?"#d5ad71":"#8b7959"} strokeWidth="5"/><path d={power} fill="none" stroke="#edd0a0" strokeWidth="1" opacity=".4"/>
-   <path className="esp-power-flow" d={power} fill="none" stroke="#ffda91" strokeWidth="2" strokeDasharray="3 23"/>
-   {[245,315,367,413,487].map(y=><path key={y} d={`M399 ${y}h28`} stroke="#899999" strokeWidth="3"/>)}
-  </g>
-  <g data-part="pumps" data-active={active==="pumps"}>
-   {active==="pumps"&&<ellipse cx="378" cy="324" rx="86" ry="103" fill="url(#esp-halo)"/>}
-   <rect x="353" y="277" width="50" height="98" rx="5" fill="url(#esp-metal)" stroke={edge("pumps")} strokeWidth="1.5"/>
-   <rect x="369" y="290" width="24" height="70" rx="2" fill="#0c2b38" stroke="#536e75"/>
-   <path d="M380 288v73" stroke="#c4d4d4" strokeWidth="3"/>
-   {[296,308,320,332,344].map((y,i)=><g key={y}><path d={`M371 ${y}q9 8 20 0v5q-10 8 -20 0Z`} fill="url(#esp-flange)"/><path className="esp-impeller-shimmer" style={{animationDelay:`${i*-.25}s`}} d={`M373 ${y+2}q7 4 15 0`} fill="none" stroke="#bbefd9" strokeWidth="1.2"/></g>)}
-   {[275,366].map(y=><g key={y}><rect x="348" y={y} width="60" height="9" rx="2" fill="url(#esp-flange)" stroke={edge("pumps")}/>{bolts(y)}</g>)}
-   <rect x="357" y="376" width="42" height="21" rx="3" fill="url(#esp-metal)" stroke="#9cacae"/>
-   {[362,369,376,383,390].map(x=><path key={x} d={`M${x} 381v11`} stroke="#102c3a" strokeWidth="3"/>)}
-  </g>
-  <g data-part="protectors" data-active={active==="protectors"}>
-   {active==="protectors"&&<ellipse cx="378" cy="425" rx="76" ry="62" fill="url(#esp-halo)"/>}
-   <rect x="353" y="399" width="50" height="53" rx="4" fill="url(#esp-metal)" stroke={edge("protectors")} strokeWidth="1.5"/>
-   <rect x="372" y="410" width="17" height="30" rx="2" fill="#16363f" stroke="#5e7881"/>
-   {[415,422,429,436].map(y=><path key={y} d={`M374 ${y}h13`} stroke="#a8b9b6" strokeWidth="2"/>)}
-   <path d="M381 408v35" stroke="#d1dcd5" strokeWidth="2"/>
-   {[400,444].map(y=><g key={y}><rect x="349" y={y} width="58" height="7" rx="2" fill="url(#esp-flange)"/>{bolts(y)}</g>)}
-  </g>
-  <rect x="363" y="453" width="31" height="12" fill="url(#esp-metal)" stroke="#7e99a3"/>
-  <g data-part="motors" data-active={active==="motors"}>
-   {active==="motors"&&<ellipse cx="378" cy="518" rx="86" ry="94" fill="url(#esp-halo)"/>}
-   <rect x="353" y="465" width="50" height="109" rx="9" fill="url(#esp-metal)" stroke={edge("motors")} strokeWidth="1.5"/>
-   <rect x="369" y="482" width="24" height="72" rx="3" fill="#102c37" stroke="#7f949c"/>
-   {[484,490,496,502,508,514,520,526,532,538,544,550].map(y=><g key={y}><rect x="371" y={y} width="7" height="3" rx=".6" fill="url(#esp-copper)"/><rect x="384" y={y} width="7" height="3" rx=".6" fill="url(#esp-copper)"/></g>)}
-   <rect x="379" y="481" width="4" height="75" fill="url(#esp-metal)"/><path className="esp-shaft-shimmer" d="M380 484v69" stroke="#e5f1e8" strokeWidth="1"/>
-   <rect x="349" y="466" width="58" height="9" rx="2" fill="url(#esp-flange)" stroke={edge("motors")}/>{bolts(466)}
-   <rect x="397" y="518" width="10" height="19" rx="2" fill="#4b635b" stroke="#b2c6b4"/>
-   <ellipse cx="378" cy="569" rx="19" ry="3" fill="#263f4a"/>
-  </g>
-  {/* Fluid travels up the annulus past the motor, into the intake, then up the production tubing. */}
-  <g fill="none" stroke="#77d5b5" strokeWidth="2" strokeLinecap="round">
-   <path className="esp-fluid-flow" d="M335 589V399Q335 385 356 385" strokeDasharray="5 19"/>
-   <path className="esp-fluid-flow" d="M415 589V400Q415 386 400 386" strokeDasharray="5 19"/>
-   <path className="esp-fluid-flow esp-fluid-riser" d="M381 363V168Q381 145 357 145H333Q329 145 329 157H285" strokeDasharray="5 19"/>
-  </g>
-  <g fill="#86dab9" opacity=".7"><path d="M332 469l3 -6 3 6m74 0l3 -6 3 6M378 230l3 -6 3 6"/></g>
-  <g fill="none" strokeWidth="1" strokeDasharray="2 5" opacity=".7">
-   <path d="M206 78H477" stroke={edge("controls")}/><path d="M206 202H268L290 215H420" stroke={edge("cables")}/><path d="M206 313H344" stroke={edge("pumps")}/><path d="M206 418H344" stroke={edge("protectors")}/><path d="M206 524H344" stroke={edge("motors")}/>
-  </g>
- </svg>;
+export type EspPart = "motors" | "protectors" | "pumps" | "cables" | "controls";
+export const sequence = [
+ {at:0,tag:"THE FIELD",title:"A system.\nBelow the surface.",copy:"Explore the connection between your field, your well and the equipment that brings fluid to the surface.",part:null},
+ {at:.13,tag:"THE WELLHEAD",title:"Every well is\na starting point.",copy:"From the surface installation, follow the production tubing and electrical supply into the well.",part:null},
+ {at:.27,tag:"THE WELL",title:"Go deeper.\nSee the connection.",copy:"A conceptual section reveals the ESP assembly inside the casing. Equipment selection starts with your operating conditions.",part:null},
+ {at:.43,tag:"THE ASSEMBLY",title:"One system.\nEvery component.",copy:"The assembly opens into an exploded view. Discover the role of each component, from the motor to surface control.",part:null},
+ {at:.60,tag:"01 / SUBMERSIBLE MOTOR",title:"The drive\nbehind the flow.",copy:"The submersible motor drives the pump. Power, voltage and thermal requirements are matched to the equipment and operating conditions.",part:"motors"},
+ {at:.70,tag:"02 / PROTECTOR",title:"A vital\nconnection.",copy:"The protector transfers torque, accommodates motor-oil volume changes and limits formation-fluid ingress into the motor.",part:"protectors"},
+ {at:.80,tag:"03 / ESP PUMP",title:"Stage by stage.\nFluid moves up.",copy:"The multistage centrifugal pump lifts fluid through the production tubing. Flow, head and well conditions define the selection.",part:"pumps"},
+ {at:.89,tag:"04 / POWER CABLE",title:"Power,\nall the way down.",copy:"The cable connects the surface supply to the motor. Geothermal and Oil & Gas use separate specifications and construction options.",part:"cables"},
+ {at:.97,tag:"05 / SURFACE CONTROL",title:"Back at\nthe surface.",copy:"Control and monitoring connect the downhole system with operating requirements. Explore the surface equipment offered for geothermal applications.",part:"controls"},
+] as const;
+export const chapterStops=[0,.185,.355,.565,.655,.755,.85,.935,1];
+export const clamp=(v:number)=>Math.max(0,Math.min(1,v));
+const ease=(v:number)=>{const x=clamp(v);return x*x*(3-2*x)};
+const between=(p:number,a:number,b:number)=>ease((p-a)/(b-a));
+export function chapterAt(p:number){let n=0;sequence.forEach((s,i)=>{if(p>=s.at)n=i});return n;}
+const keys:{at:number;camera:[number,number,number];target:[number,number,number]}[]=[
+ {at:0,camera:[35,23,42],target:[0,0,-3]},
+ {at:.13,camera:[12,8,17],target:[0,1,0]},
+ {at:.23,camera:[8,3,13],target:[0,.2,0]},
+ {at:.34,camera:[12,-5,28],target:[0,-8.2,0]},
+ {at:.43,camera:[10,-7,29],target:[0,-8.8,0]},
+ {at:.58,camera:[12,-7,34],target:[.6,-9.5,0]},
+ {at:.655,camera:[5,-14,13],target:[0,-16.4,0]},
+ {at:.755,camera:[5,-9,11],target:[0,-11,0]},
+ {at:.85,camera:[5,-4,13],target:[0,-6,0]},
+ {at:.935,camera:[11,-7,23],target:[2,-8,0]},
+ {at:1,camera:[11,-1,13],target:[6.1,-3,0]},
+];
+export function cameraState(p:number){
+ let i=0;while(i<keys.length-2&&p>keys[i+1].at)i++;
+ const a=keys[i],b=keys[i+1],t=between(p,a.at,b.at);
+ return{position:new T.Vector3(...a.camera).lerp(new T.Vector3(...b.camera),t),target:new T.Vector3(...a.target).lerp(new T.Vector3(...b.target),t)};
+}
+
+/** Procedural, illustrative ESP scene. Geometry is not manufacturer CAD or a dimensioned design. */
+export function createEspWorld(){
+ const scene=new T.Scene();scene.background=new T.Color("#b5c6bd");scene.fog=new T.FogExp2("#b5c6bd",.006);
+ const surface=new T.Group(),formation=new T.Group(),assembly=new T.Group();scene.add(surface,formation,assembly);
+ const materials:T.Material[]=[];const material=(color:string,metalness=0,roughness=.65)=>{const m=new T.MeshStandardMaterial({color,metalness,roughness});materials.push(m);return m};
+ const steel=material("#a4b0b4",.88,.3),dark=material("#334c55",.77,.36),chrome=material("#d1dddd",.96,.19),copper=material("#bf804f",.82,.32),green=material("#227665",.65,.32),concrete=material("#8c9791",.02,.91),black=material("#14272d",.12,.8),brass=material("#b99a5e",.82,.32);
+ const ground=material("#536f55",0,.96),gravel=material("#7d897b",0,.97),building=material("#cad0c3",.15,.68),roof=material("#4e6261",.55,.48);
+ const textures:T.Texture[]=[];
+ function noiseTexture(size:number,repeat:number){
+  const bytes=new Uint8Array(size*size*4);let seed=41721;
+  for(let i=0;i<size*size;i++){seed=(seed*1664525+1013904223)>>>0;const n=125+(seed>>>24)*.47;bytes[i*4]=n;bytes[i*4+1]=n;bytes[i*4+2]=n;bytes[i*4+3]=255}
+  const t=new T.DataTexture(bytes,size,size,T.RGBAFormat);t.wrapS=t.wrapT=T.RepeatWrapping;t.repeat.set(repeat,repeat);t.magFilter=T.LinearFilter;t.minFilter=T.LinearMipmapLinearFilter;t.generateMipmaps=true;t.needsUpdate=true;textures.push(t);return t;
+ }
+ ground.map=noiseTexture(256,24);ground.bumpMap=ground.map;ground.bumpScale=.1;
+ gravel.map=noiseTexture(128,9);gravel.bumpMap=gravel.map;gravel.bumpScale=.075;
+ concrete.map=noiseTexture(128,3);concrete.bumpMap=concrete.map;concrete.bumpScale=.025;
+ const glow=new T.MeshBasicMaterial({color:"#91efc7",transparent:true,opacity:.9});materials.push(glow);
+ function mesh(g:T.BufferGeometry,m:T.Material,parent:T.Object3D,x=0,y=0,z=0){const o=new T.Mesh(g,m);o.position.set(x,y,z);o.castShadow=true;o.receiveShadow=true;parent.add(o);return o}
+ function box(w:number,h:number,d:number,m:T.Material,parent:T.Object3D,x=0,y=0,z=0){return mesh(new T.BoxGeometry(w,h,d),m,parent,x,y,z)}
+ function cyl(r:number,h:number,m:T.Material,parent:T.Object3D,x=0,y=0,z=0,r2=r,n=32){return mesh(new T.CylinderGeometry(r,r2,h,n),m,parent,x,y,z)}
+ function pipe(points:number[][],r:number,m:T.Material,parent:T.Object3D){return mesh(new T.TubeGeometry(new T.CatmullRomCurve3(points.map(p=>new T.Vector3(...p)),false,"centripetal"),Math.max(12,points.length*6),r,12,false),m,parent)}
+ function ring(r:number,tube:number,m:T.Material,parent:T.Object3D,y:number){const o=mesh(new T.TorusGeometry(r,tube,8,36),m,parent,0,y);o.rotation.x=Math.PI/2;return o}
+ function bolts(parent:T.Object3D,r:number,y:number,count=8){const geometry=new T.CylinderGeometry(.045,.045,.11,6);const inst=new T.InstancedMesh(geometry,brass,count);const dummy=new T.Object3D();for(let i=0;i<count;i++){const a=i/count*Math.PI*2;dummy.position.set(Math.sin(a)*r,y,Math.cos(a)*r);dummy.updateMatrix();inst.setMatrixAt(i,dummy.matrix)}inst.castShadow=true;parent.add(inst)}
+ function flange(parent:T.Object3D,r:number,y:number){cyl(r,.13,steel,parent,0,y);ring(r*.93,.035,chrome,parent,y+.07);bolts(parent,r*.76,y+.1)}
+ // Broad, gently undulating terrain, flat close to the well pads.
+ const terrain=new T.PlaneGeometry(150,120,65,55);terrain.rotateX(-Math.PI/2);
+ const pos=terrain.attributes.position;
+ for(let i=0;i<pos.count;i++){const x=pos.getX(i),z=pos.getZ(i),distance=Math.sqrt(x*x+z*z);const hills=(Math.sin(x*.11+z*.065)*2+Math.cos(z*.105-x*.048)*2.2+.9*Math.sin(x*.27)*Math.cos(z*.15));pos.setY(i,-.28+Math.max(0,Math.min(1,(distance-20)/25))*Math.max(-.25,hills))}
+ terrain.computeVertexNormals();mesh(terrain,ground,surface,0,0,-8);
+ // Access roads and well pads.
+ box(9,.1,11,gravel,surface,0,-.12,0);box(5,.11,58,gravel,surface,-8,-.1,-22);box(37,.1,4.3,gravel,surface,9,-.08,-12);
+ box(5,.25,5,concrete,surface,0,.02,0);
+ const wellhead=new T.Group();surface.add(wellhead);
+ cyl(.67,.23,dark,wellhead,0,.2);cyl(.38,1.35,steel,wellhead,0,.9);flange(wellhead,.55,.38);flange(wellhead,.5,1.25);cyl(.27,.48,green,wellhead,0,1.55);cyl(.1,.4,chrome,wellhead,0,1.95);ring(.46,.045,brass,wellhead,2.13);
+ const wheel=mesh(new T.TorusGeometry(.4,.035,8,32),green,wellhead,0,1.16,.65);wheel.rotation.y=.1;
+ pipe([[0,1.1,0],[0,1.1,.65],[0,1.1,.9]],.11,dark,wellhead);
+ pipe([[.2,.8,0],[1.1,.8,0],[1.65,.8,-.5],[1.8,.8,-2],[1.8,1.2,-3],[5,1.2,-3],[12,1.2,-3],[15,1.2,-6],[15,1.2,-15],[15,1.2,-25]],.24,steel,surface);
+ pipe([[-.2,.55,0],[-1,.55,0],[-1.7,.55,-.5],[-1.8,.65,-4],[-1.8,.65,-15],[0,.65,-18],[10,.65,-18],[14,.65,-20],[14,.65,-25]],.17,dark,surface);
+ for(let i=0;i<8;i++){box(.2,1.1,1.1,concrete,surface,15,.48,-5-i*2.7);box(1,.65,.18,concrete,surface,-1.8,.28,-3-i*1.65)}
+ // Secondary well stations and collection lines.
+ for(const [x,z]of [[-17,-18],[22,-18],[-24,12],[25,8]]){box(5,.2,5,concrete,surface,x,0,z);const station=wellhead.clone();station.scale.setScalar(.85);station.position.set(x,0,z);surface.add(station);pipe([[x,.75,z],[x+1,.75,z],[x+2,.75,z-2],[x+2,.75,-29],[14,.75,-29]],.14,steel,surface)}
+ // Industrial surface equipment, kept generic rather than attributed to a real installation.
+ box(18,4.1,9,building,surface,13,2,-32);box(18.5,.35,9.5,roof,surface,13,4.25,-32);
+ for(let i=0;i<6;i++){box(1.55,1.3,.05,black,surface,6+i*2.65,2.6,-27.46);box(.06,1.3,.08,chrome,surface,6+i*2.65,2.6,-27.4)}
+ for(let i=0;i<3;i++){cyl(1.5,5.2,steel,surface,27+i*4,2.6,-33);ring(1.5,.05,chrome,surface,0).position.set(27+i*4,4.7,-33)}
+ for(let i=0;i<2;i++){const c=cyl(1.05,5,steel,surface,4+i*4,2.5,-40);c.rotation.z=Math.PI/2;box(1.5,1,1.3,concrete,surface,4+i*4,1,-40)}
+ // Cable tray from the well to a surface cabinet.
+ pipe([[.7,.4,0],[2,.15,0],[4,.15,-1],[4,.6,-1]],.055,black,surface);
+ const parts={}as Record<EspPart,T.Group>;
+ for(const id of ["motors","protectors","pumps","cables","controls"]as EspPart[]){parts[id]=new T.Group();parts[id].name=id;assembly.add(parts[id])}
+ const control=parts.controls;box(1.4,2.35,.62,steel,control,0,1.17);box(1.12,1.93,.07,green,control,0,1.18,.36);box(.67,.4,.05,black,control,-.1,1.7,.41);box(.55,.025,.025,glow,control,-.1,1.7,.448);box(.08,.35,.08,chrome,control,.43,1.03,.43);
+ for(let i=0;i<5;i++)box(.63,.025,.04,dark,control,-.1,.55+i*.085,.415);
+ for(const x of [-.47,.47])box(.12,.25,.4,dark,control,x,-.1);mesh(new T.SphereGeometry(.055,12,8),glow,control,.4,1.75,.44);
+ // Back wall of the schematic geological section, with discrete strata.
+ const strata=["#3d5548","#766d53","#555e52","#8c7d5e","#445751","#6f6853","#394e49"];
+ for(let i=0;i<7;i++){const m=material(strata[i],0,.98);const g=new T.BoxGeometry(29,2.75,8,24,1,1);const a=g.attributes.position;for(let j=0;j<a.count;j++){const x=a.getX(j);a.setY(j,a.getY(j)+Math.sin(x*.25+i*.8)*.25+Math.sin(x*.57)*.1)}g.computeVertexNormals();mesh(g,m,formation,0,-1.4-i*2.72,-5.7)}
+ // Casing and cement are open toward the viewer; the front sector is intentionally removed.
+ const casing=new T.Group();formation.add(casing);
+ mesh(new T.CylinderGeometry(1.0,1.0,18.9,48,1,true,Math.PI/3,Math.PI*4/3),material("#78867c",0,.9),casing,0,-9.4,0);
+ mesh(new T.CylinderGeometry(.87,.87,18.9,48,1,true,Math.PI/3,Math.PI*4/3),dark,casing,0,-9.4,0);
+ for(let y=-1.5;y>-19;y-=3.4){const arc=mesh(new T.TorusGeometry(.91,.065,8,40,Math.PI*4/3),steel,casing,0,y);arc.rotation.x=Math.PI/2;arc.rotation.z=-Math.PI/6;}
+ const tubing=new T.Group();assembly.add(tubing);cyl(.19,4.9,steel,tubing,0,-2.25);for(const y of [-1,-3.6])cyl(.235,.13,dark,tubing,0,y);
+ const covers:{mesh:T.Mesh;amount:number}[]=[];
+ function body(parent:T.Group,r:number,h:number){
+  const shell=mesh(new T.CylinderGeometry(r,r,h,48,1,true,Math.PI/3,Math.PI*4/3),steel,parent);shell.material=new T.MeshStandardMaterial({color:"#9cabaf",metalness:.9,roughness:.29,side:T.DoubleSide});
+  const cover=mesh(new T.CylinderGeometry(r,r,h,32,1,true,-Math.PI/3,Math.PI*2/3),steel,parent);cover.material=new T.MeshStandardMaterial({color:"#93a3a7",metalness:.9,roughness:.28,side:T.DoubleSide});materials.push(shell.material,cover.material);covers.push({mesh:cover,amount:r*2.8});
+  flange(parent,r*1.14,h/2);flange(parent,r*1.14,-h/2);cyl(.085,h+.55,chrome,parent);
+ }
+ const motor=parts.motors;body(motor,.46,4.8);
+ const rotor=new T.Group();motor.add(rotor);
+ cyl(.19,4.5,dark,rotor);for(let i=0;i<11;i++){const y=-2+i*.4;ring(.27,.085,copper,motor,y);cyl(.205,.25,chrome,rotor,0,y);for(const x of [-.28,.28])box(.075,.23,.13,copper,motor,x,y,.12)}
+ cyl(.35,.24,green,motor,0,-2.63);cyl(.27,.18,dark,motor,0,2.6);
+ const protector=parts.protectors;body(protector,.47,1.55);for(const y of [-.5,0,.5]){cyl(.3,.12,dark,protector,0,y);ring(.29,.04,brass,protector,y+.08)}
+ const intake=cyl(.37,.48,dark,protector,0,1.08);for(let i=0;i<8;i++){const a=i*Math.PI/4;box(.04,.28,.11,black,protector,Math.sin(a)*.37,1.08,Math.cos(a)*.37)}
+ const pump=parts.pumps;body(pump,.46,4.4);
+ const impellers=new T.Group();pump.add(impellers);
+ for(let i=0;i<13;i++){const y=-1.97+i*.325;cyl(.33,.065,chrome,impellers,0,y,0,.26);ring(.295,.032,brass,impellers,y+.08);for(let j=0;j<4;j++){const blade=box(.035,.1,.235,steel,impellers,0,y+.05,.13);blade.rotation.y=j*Math.PI/2+.42;blade.position.x=Math.sin(j*Math.PI/2)*.13;blade.position.z=Math.cos(j*Math.PI/2)*.13}}
+ // Three insulated cores in a flat ESP cable. Length and layer sizes are illustrative only.
+ const cable=parts.cables;const coreM=material("#292f30",.1,.8);
+ for(let i=0;i<3;i++){cyl(.055,12.8,coreM,cable,(i-1)*.13,0);cyl(.037,.6,copper,cable,(i-1)*.13,6.65);cyl(.066,.16,steel,cable,(i-1)*.13,6.33)}
+ const armor=box(.46,10.5,.19,steel,cable,0,-1,.015);for(let i=0;i<46;i++){const band=box(.475,.021,.205,dark,cable,0,-6.08+i*.224,.015);band.rotation.z=.17}
+ // Assembly-axis guide becomes visible only in the exploded view.
+ const guideGeo=new T.BufferGeometry().setFromPoints([new T.Vector3(0,-20,0),new T.Vector3(0,-3,0)]);const guide=new T.Line(guideGeo,new T.LineDashedMaterial({color:"#76c4ab",dashSize:.14,gapSize:.18,transparent:true,opacity:.35}));guide.computeLineDistances();assembly.add(guide);
+ // Subtle particles communicate upward fluid movement without implying measured rates.
+ const particles=new T.Group();assembly.add(particles);const flowDots:T.Mesh[]=[];
+ for(let i=0;i<25;i++){const dot=mesh(new T.SphereGeometry(.028,6,4),glow,particles);flowDots.push(dot)}
+ // Broad key, sky fill and restrained rim lighting.
+ scene.add(new T.HemisphereLight("#e9f7ef","#46584f",2.6));
+ const sun=new T.DirectionalLight("#fff2d7",3.1);sun.position.set(-16,28,19);sun.castShadow=true;sun.shadow.mapSize.set(2048,2048);sun.shadow.camera.left=-35;sun.shadow.camera.right=35;sun.shadow.camera.top=35;sun.shadow.camera.bottom=-35;sun.shadow.camera.far=100;sun.shadow.normalBias=.04;scene.add(sun);
+ const rim=new T.DirectionalLight("#a5e2de",3.0);rim.position.set(10,-3,-9);scene.add(rim);
+ const fill=new T.DirectionalLight("#e9f5ff",1.8);fill.position.set(-8,-10,16);scene.add(fill);
+ const formationMaterials:T.Material[]=[];
+ formation.traverse(o=>{if(o instanceof T.Mesh){const clone=(m:T.Material)=>{const c=m.clone();c.transparent=true;formationMaterials.push(c);return c};o.material=Array.isArray(o.material)?o.material.map(clone):clone(o.material)}});
+ // Per-part materials allow emphasis without changing shared surface materials.
+ const partMaterials={}as Record<EspPart,T.MeshStandardMaterial[]>;
+ for(const id of Object.keys(parts)as EspPart[]){const clones=new Map<T.Material,T.Material>();const list:T.MeshStandardMaterial[]=[];parts[id].traverse(o=>{if(!(o instanceof T.Mesh))return;const replace=(m:T.Material)=>{if(!clones.has(m)){const c=m.clone();clones.set(m,c);if(c instanceof T.MeshStandardMaterial)list.push(c)}return clones.get(m)!};o.material=Array.isArray(o.material)?o.material.map(replace):replace(o.material)});partMaterials[id]=list}
+ const anchors:Record<EspPart,T.Vector3>={motors:new T.Vector3(),protectors:new T.Vector3(),pumps:new T.Vector3(),cables:new T.Vector3(),controls:new T.Vector3()};
+ let lastChapter=-1;
+ const surfaceColor=new T.Color("#b5c6bd"),depthColor=new T.Color("#071c26"),backgroundColor=new T.Color();
+ function update(p:number,time:number){
+  const underground=between(p,.20,.34),explode=between(p,.43,.58);
+  const bg=backgroundColor.copy(surfaceColor).lerp(depthColor,underground);scene.background=bg;(scene.fog as T.FogExp2).color.copy(bg);(scene.fog as T.FogExp2).density=.006+underground*.009;
+  surface.visible=p<.40;surface.position.y=0;
+  formation.visible=p>.18&&p<.55;formation.position.z=-between(p,.43,.55)*8;formationMaterials.forEach(m=>{m.opacity=1-between(p,.43,.55)});
+  casing.visible=p<.52;
+  parts.motors.position.set(0,-14-explode*2.4,0);
+  parts.protectors.position.set(0,-10.5-explode*.5,0);
+  parts.pumps.position.set(0,-7+explode,0);
+  parts.cables.position.set(.72+explode*2.0,-7.25,0);
+  parts.controls.position.set(4+explode*2.1, .15-explode*4.7,-1+explode);
+  assembly.visible=true;
+  tubing.visible=p<.56;tubing.scale.y=1-between(p,.43,.56)*.99;
+  guide.visible=explode>.05;
+  covers.forEach(({mesh,amount})=>{mesh.position.x=explode*amount;mesh.position.z=explode*.75;mesh.rotation.y=explode*.24});
+  rotor.rotation.y=time*.6;impellers.rotation.y=time*.28;
+  particles.visible=p>.28&&p<.89;
+  flowDots.forEach((dot,i)=>{const a=i*.9;dot.position.set(Math.sin(a)*.32,-8.8+((time*.65+i*.34)%5.7),.36+Math.cos(a)*.1)});
+  const chapter=chapterAt(p);if(chapter!==lastChapter){lastChapter=chapter;const active=sequence[chapter].part;for(const id of Object.keys(parts)as EspPart[]){for(const m of partMaterials[id]){m.emissive.set(active===id?"#144a3b":"#000000");m.emissiveIntensity=active===id?.24:0}}}
+  scene.updateMatrixWorld(true);for(const id of Object.keys(parts)as EspPart[])parts[id].getWorldPosition(anchors[id]);anchors.controls.y+=1.3;
+  return cameraState(p);
+ }
+ function dispose(){const gs=new Set<T.BufferGeometry>(),ms=new Set<T.Material>();scene.traverse(o=>{if(o instanceof T.Mesh||o instanceof T.Line){gs.add(o.geometry);(Array.isArray(o.material)?o.material:[o.material]).forEach(m=>ms.add(m))}});materials.forEach(m=>ms.add(m));gs.forEach(g=>g.dispose());ms.forEach(m=>m.dispose());sun.shadow.dispose();textures.forEach(t=>t.dispose())}
+ update(0,0);
+ return{scene,parts,anchors,update,dispose,rotor,impellers,armor,intake};
 }

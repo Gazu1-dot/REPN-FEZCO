@@ -2,7 +2,7 @@ import { AssetImage } from "./asset-image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { MobileNav, DesktopNav, HeaderContact } from "./interactive";
-import { PremiumHero, ScrollFrame } from "./premium-hero";
+import { ScrollFrame } from "./premium-hero";
 import { SystemExplorer } from "./system-explorer";
 import { applications, mainNavigation } from "@/lib/site-structure";
 
@@ -37,7 +37,7 @@ export function Eyebrow({children}:{children:React.ReactNode}) {
 
 export function HomePage() {
  return <ScrollFrame>
-  <PremiumHero/>
+  <SystemExplorer/>
   <section className="scroll-intro container" id="applications" aria-labelledby="application-title">
    <div className="scroll-section-meta"><span>01 / APPLICATIONS</span><span>TWO ENVIRONMENTS. ONE POINT OF CONTACT.</span></div>
    <div className="scroll-intro-heading" data-reveal><h2 id="application-title">Different conditions.<br/><span>The right system.</span></h2><p>Start with your application. Explore the equipment, then build the specification around your well.</p></div>
@@ -46,7 +46,6 @@ export function HomePage() {
     <Link href="/equipment/?application=oil-and-gas" className="scroll-application scroll-application-oil" data-reveal><AssetImage src="/assets/oil-pump.webp" alt="ESP pump assemblies for oilfield applications" loading="lazy"/><div className="scroll-application-content"><span className="scroll-label">EQUIPMENT FOR PRODUCTION</span><h3>Oil &amp; Gas.</h3><p>Modular ESP components selected for oilfield operating conditions.</p><span className="scroll-application-link">Explore oil &amp; gas <ArrowUpRight size={22}/></span></div></Link>
    </div>
   </section>
-  <SystemExplorer/>
   <section className="scroll-support container" id="project-support" aria-labelledby="support-title">
    <div className="scroll-section-meta"><span>03 / PROJECT SUPPORT</span><span>BEYOND THE COMPONENTS</span></div>
    <div className="scroll-support-grid"><figure className="scroll-support-photo" data-reveal><AssetImage src="/assets/precision-components.jpg" alt="Precision-machined metal components" loading="lazy"/><figcaption>PRECISION COMPONENTS / EQUIPMENT PRODUCTION</figcaption></figure><div className="scroll-support-copy" data-reveal><h2 id="support-title">The equipment.<br/><span>And what comes next.</span></h2><p>Support defined around your equipment and project requirements, from selection and installation to inspection and repair.</p><div className="scroll-service-list"><Link href="/services/"><span>01</span>Selection &amp; project support<ArrowUpRight size={18}/></Link><Link href="/services/"><span>02</span>Installation &amp; field support<ArrowUpRight size={18}/></Link><Link href="/services/"><span>03</span>Inspection &amp; repair<ArrowUpRight size={18}/></Link></div><Link className="scroll-inline-link" href="/company/">Meet REPN-FZCO <ArrowUpRight size={17}/></Link></div></div>
