@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="460" height="700" viewBox="0 0 460 700">
+ <title>Numbered well parameters</title>
+ <desc>Schematic based on the supplied questionnaire. 1 borehole diameter; 2 well depth; 3 dynamic water level; 4 static water level; 5 well flow rate; 6 water temperature; 7 design pressure at the wellhead. Depths refer to ground level. Not to scale.</desc>
+ <defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#52646e"/></marker>
+  <marker id="flow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#14835b"/></marker>
+  <pattern id="soil" width="12" height="12" patternUnits="userSpaceOnUse"><path d="M0 12 12 0" stroke="#dde5df" stroke-width="1"/></pattern>
+ </defs>
+ <rect width="460" height="700" fill="#fff"/>
+ <g fill="none" stroke="#04213c" stroke-width="2">
+  <rect x="333" y="44" width="76" height="64" rx="2" fill="#f4f7f5"/>
+  <path d="M352 90v43h-84v286"/><circle cx="352" cy="87" r="3" fill="#04213c"/>
+  <path d="M389 90v44h35"/><circle cx="389" cy="87" r="3" fill="#04213c"/>
+  <path d="M243 423V91q0-8-8-8H83" stroke-width="7"/><path d="M243 423V91q0-8-8-8H83" stroke="#fff" stroke-width="3"/>
+  <path d="M87 74 102 83 87 92zM117 74 102 83 117 92z" fill="#fff"/>
+  <path d="M102 75V65m-7 0h14"/>
+  <circle cx="204" cy="52" r="18" fill="#fff"/><path d="m194 62 19-19m-9 27v13"/>
+  <rect x="210" y="142" width="77" height="10" fill="#edf3ef"/><circle cx="222" cy="147" r="2"/><circle cx="277" cy="147" r="2"/>
+ </g>
+ <path d="M22 176h191v480h-17V192H22zM282 176h155v16H300v464h-18z" fill="url(#soil)"/>
+ <path d="M22 176h192m68 0h155" stroke="#798980" stroke-width="2"/>
+ <text x="321" y="168" fill="#52646e" font-family="Arial,sans-serif" font-size="12">Ground level</text>
+ <path d="M218 313h59v342h-59z" fill="#edf6f7"/>
+ <path d="M214 152v505h68V152m-64 0v501h59V152" stroke="#52646e" stroke-width="2" fill="none"/>
+ <path d="M243 152V423" fill="none" stroke="#04213c" stroke-width="7"/><path d="M243 152V423" fill="none" stroke="#fff" stroke-width="3"/><path d="M268 152v409h-10" fill="none" stroke="#04213c" stroke-width="1.6"/>
+ <path d="M218 313h59M218 383h59" stroke="#4c8d9b" stroke-width="2" stroke-dasharray="5 3"/>
+ <path d="m222 303 5 7 5-7m-10 70 5 7 5-7" stroke="#4c8d9b" fill="none" stroke-width="2"/>
+ <text x="304" y="317" font-family="Arial,sans-serif" font-size="12" fill="#52646e">Static level</text>
+ <text x="304" y="387" font-family="Arial,sans-serif" font-size="12" fill="#52646e">Dynamic level</text>
+ <path d="M281 313h18m-18 70h18" stroke="#a0b6b8"/>
+ <g stroke="#04213c" fill="#d6e4dd" stroke-width="1.5">
+  <rect x="236" y="423" width="24" height="90" rx="3"/><path d="M237 437h22m-22 13h22m-22 13h22m-22 13h22m-22 13h22m-22 13h22"/>
+  <rect x="238" y="514" width="20" height="14"/><rect x="238" y="529" width="20" height="53" rx="2"/>
+  <path d="M263 195h-29m29 62h-29m29 70h-29m29 70h-29"/>
+ </g>
+ <path d="M268 420v141h-10" stroke="#04213c" stroke-width="1.6" fill="none"/>
+ <path d="M220 608h55m-55 10h55m-55 10h55m-55 10h55" stroke="#a5b7ac" stroke-width="2"/>
+ <g stroke="#52646e" stroke-width="1.3" fill="none">
+  <path d="M47 176h168M47 657h167M98 383h117M150 313h65" stroke="#b9c7c0"/>
+  <path d="M47 179v475" marker-start="url(#arrow)" marker-end="url(#arrow)"/><path d="M98 179v201" marker-start="url(#arrow)" marker-end="url(#arrow)"/><path d="M150 179v131" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <path d="M217 641h62" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+ </g>
+ <path d="M76 83H37" stroke="#14835b" stroke-width="2" marker-end="url(#flow)"/>
+ <path d="M135 107V87M204 19V30" stroke="#14835b" stroke-width="1.5"/>
+ <g font-family="Arial,sans-serif" font-size="16" font-weight="700" text-anchor="middle" fill="#fff">
+  <g><circle cx="247" cy="641" r="15" fill="#14835b"/><text x="247" y="647">1</text></g>
+  <g><circle cx="47" cy="492" r="15" fill="#14835b"/><text x="47" y="498">2</text></g>
+  <g><circle cx="98" cy="276" r="15" fill="#14835b"/><text x="98" y="282">3</text></g>
+  <g><circle cx="150" cy="237" r="15" fill="#14835b"/><text x="150" y="243">4</text></g>
+  <g><circle cx="54" cy="54" r="15" fill="#14835b"/><text x="54" y="60">5</text></g>
+  <g><circle cx="135" cy="122" r="15" fill="#14835b"/><text x="135" y="128">6</text></g>
+  <g><circle cx="204" cy="17" r="15" fill="#14835b"/><text x="204" y="23">7</text></g>
+ </g>
+ <text x="230" y="686" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" fill="#52646e">Schematic reference · not to scale</text>
+</svg>

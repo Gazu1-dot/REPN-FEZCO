@@ -1,0 +1,27 @@
+{
+  "framework": null,
+  "buildCommand": "npm run build:export",
+  "outputDirectory": "out",
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
+      ]
+    }
+  ],
+  "installCommand": "npm ci --registry=https://registry.npmjs.org/ --cache=.npm-public-cache --prefer-online",
+  "functions": {
+    "api/enquiry.ts": {
+      "maxDuration": 30,
+      "includeFiles": "public/downloads/REPN-Equipment-Selection-Questionnaire.docx"
+    }
+  }
+}

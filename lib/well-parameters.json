@@ -1,0 +1,9 @@
+[
+  {"number":1,"name":"borehole_diameter","label":"Borehole diameter","unit":"mm / inch","help":"Select the unit for the diameter you enter."},
+  {"number":2,"name":"well_depth","label":"Well depth","unit":"m","help":"Depth from ground level to the bottom of the well."},
+  {"number":3,"name":"dynamic_level","label":"Dynamic water level","unit":"m","help":"Depth below ground level while pumping."},
+  {"number":4,"name":"static_level","label":"Static water level","unit":"m","help":"Depth below ground level when the well is at rest."},
+  {"number":5,"name":"flow","label":"Well flow rate","unit":"m³/h","help":"Flow rate for the requested operating point."},
+  {"number":6,"name":"temperature","label":"Water temperature","unit":"°C","help":"Water temperature for equipment selection."},
+  {"number":7,"name":"wellhead_pressure","label":"Design pressure at wellhead","unit":"bar","help":"Design pressure required at the wellhead."}
+]

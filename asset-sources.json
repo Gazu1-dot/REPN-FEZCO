@@ -1,0 +1,259 @@
+[
+  {
+    "asset": "manufacturing-hero.webp",
+    "source": "Built-in imagegen edit of the v17.7 illustrative hero, at user request",
+    "purpose": "Generic illustrative geothermal field scene; not a photograph of a named REPN-FZCO facility or reference project",
+    "usage_v9": "Homepage hero, neutral industrial context. Original v8 file unchanged; CSS cover crop and navy overlay only.",
+    "usage_v16": "Original homepage photograph with slow CSS motion and pause control; source file unchanged. No video or new photograph.",
+    "source_before_v17_2": "Catalog REPN-EN-2025-12-02.pdf, page 5, embedded image xref 28",
+    "purpose_before_v17_2": "Original catalogue image, format conversion only",
+    "usage_v17_2": {
+      "content": "Geothermal wellheads and silver pipelines in a volcanic landscape, with distant steam and dawn light",
+      "delivery": "WebP 1466 × 866; shared homepage hero path retained",
+      "claim": "Illustrative industry setting, without company marks or geographic attribution"
+    },
+    "usage_v17_8": {
+      "content": "Same geothermal field composition, neutral overcast daylight, matte weathered equipment and subdued vegetation; steam limited to a distant plant vent.",
+      "delivery": "WebP 1672 × 941, quality 90; generated PNG converted without cropping or retouching.",
+      "tool_mode": "Built-in image_gen editing, no CLI fallback",
+      "claim": "AI-generated illustrative scene. Not a documentary image of a real or REPN-owned facility.",
+      "prompt": "Edit the existing geothermal field hero to look like natural industrial documentary photography. Preserve wide composition, wellheads and pipelines primarily right, volcanic landscape, distant plant, lake and mountains, clear left area for website text. Replace artificial golden sunburst and oversaturation with neutral overcast daylight, muted olive vegetation, realistic atmospheric distance, matte weathered galvanized cladding, coherent joints, concrete supports, gravel tracks and subtle imperfections. Sparse wind-dispersed steam only at the distant plant vent, no pipe leaks. Avoid glossy CGI, hyper-HDR, lens flare, green/orange grading. No text, people, logos, watermark, named site or ownership claim."
+    }
+  },
+  {
+    "asset": "manufacturing-detail.webp",
+    "source": "Catalog REPN-EN-2025-12-02.pdf, page 6, embedded image xref 40",
+    "purpose": "Original catalogue image, format conversion only",
+    "usage_v11": "Services page. Neutral image of industrial pumping equipment and pipework; visually inspected. Original file unchanged; no facility ownership claim.",
+    "usage_v17": "Services opening photograph, shown once in the split hero. Neutral technical context, unchanged original file; CSS framing only."
+  },
+  {
+    "asset": "geothermal-pump.webp",
+    "source": "Catalog-REPN-EN_3.pptx, embedded image20.png, slides 13,17,21",
+    "purpose": "Original catalogue image, format conversion only"
+  },
+  {
+    "asset": "oil-pump.webp",
+    "source": "Catalog REPN-EN-2025-12-02.pdf, page 8, embedded image xref 549",
+    "purpose": "Original catalogue image, format conversion only",
+    "usage_v12": "Original photograph on product header and catalogue cards; included in the REPN-FZCO product guide. The homepage portfolio card was corrected in v15.",
+    "usage_v15": "Homepage portfolio and equipment cards share this same original image. Landscape 2:1 display via CSS; source file unchanged.",
+    "usage_v16": "Original photograph in the homepage system explorer, shared with equipment selection images.",
+    "usage_v17": "Product opening photograph in a 2:1 CSS frame. Enlarged viewer retains the complete original image. Source bytes unchanged."
+  },
+  {
+    "asset": "motor.webp",
+    "source": "Catalog REPN-EN-2025-12-02.pdf, page 66, embedded image xref 446",
+    "purpose": "Original catalogue image, format conversion only",
+    "usage_v15": "Shared 2:1 category image frame. Photographs use CSS cover; component illustrations remain contained. Cable and sensor illustrations are turned within the card using CSS only. Original image file unchanged.",
+    "usage_v17": "Product opening photograph in a 2:1 CSS frame. Enlarged viewer retains the complete original image. Source bytes unchanged.",
+    "usage_v17_1": {
+      "edit": "User-requested removal of visible Cyrillic REPN brand lettering on metal bands. AI-assisted local-retouch instruction; existing photograph used as the edit target. Result is a retouched rendition, not a pixel-identical original.",
+      "tool": "Built-in image_gen",
+      "web_delivery": "Resized to original 774 × 696 dimensions and converted to WebP. Shared website image path retained.",
+      "scope": "Website image uses only; PDF downloads unchanged.",
+      "prompt": "Remove ONLY visible Cyrillic brand lettering РЭПН from the shiny curved metal nameplate bands. Reconstruct matching reflective metal, preserve the bands, EAC marks, handwritten numbers, motor geometry, viewpoint, crop, background and lighting; no replacement branding."
+    }
+  },
+  {
+    "asset": "protector.webp",
+    "source": "Catalog REPN-EN-2025-12-02.pdf, page 60, embedded image xref 416",
+    "purpose": "Original catalogue image, format conversion only",
+    "usage_v15": "Shared 2:1 category image frame. Photographs use CSS cover; component illustrations remain contained. Cable and sensor illustrations are turned within the card using CSS only. Original image file unchanged.",
+    "usage_v17": "Product opening illustration in a 2:1 CSS frame using object-fit contain. Sensor rotated in this introductory frame only; viewer uses original orientation. Source bytes unchanged."
+  },
+  {
+    "asset": "cable.webp",
+    "source": "Catalog-REPN-EN_3.pptx, embedded image44.png, slides 35",
+    "purpose": "Original catalogue image, format conversion only",
+    "usage_v15": "Shared 2:1 category image frame. Photographs use CSS cover; component illustrations remain contained. Cable and sensor illustrations are turned within the card using CSS only. Original image file unchanged."
+  },
+  {
+    "asset": "sensor.webp",
+    "source": "Catalog-REPN-EN_3.pptx, embedded image41.png, slides 29",
+    "purpose": "Original catalogue image, format conversion only",
+    "usage_v15": "Shared 2:1 category image frame. Photographs use CSS cover; component illustrations remain contained. Cable and sensor illustrations are turned within the card using CSS only. Original image file unchanged.",
+    "usage_v17": "Product opening illustration in a 2:1 CSS frame using object-fit contain. Sensor rotated in this introductory frame only; viewer uses original orientation. Source bytes unchanged."
+  },
+  {
+    "asset": "vsd.webp",
+    "source": "Catalog-REPN-EN_3.pptx, embedded image10.png, slides 4",
+    "purpose": "Original catalogue image, format conversion only",
+    "usage_v15": "Shared 2:1 category image frame. Photographs use CSS cover; component illustrations remain contained. Cable and sensor illustrations are turned within the card using CSS only. Original image file unchanged.",
+    "usage_v17": "Product opening illustration in a 2:1 CSS frame using object-fit contain. Sensor rotated in this introductory frame only; viewer uses original orientation. Source bytes unchanged."
+  },
+  {
+    "asset": "intake.webp",
+    "source": "Catalog REPN-EN-2025-12-02.pdf, page 38, embedded image xref 256",
+    "purpose": "Original catalogue image, format conversion only",
+    "usage_v15": "Shared 2:1 category image frame. Photographs use CSS cover; component illustrations remain contained. Cable and sensor illustrations are turned within the card using CSS only. Original image file unchanged.",
+    "usage_v17": "Product opening illustration in a 2:1 CSS frame using object-fit contain. Sensor rotated in this introductory frame only; viewer uses original orientation. Source bytes unchanged."
+  },
+  {
+    "asset": "coating.webp",
+    "source": "Catalog REPN-EN-2025-12-02.pdf, page 76, embedded image xref 495",
+    "purpose": "Original catalogue image, format conversion only",
+    "usage_v15": "Shared 2:1 category image frame. Photographs use CSS cover; component illustrations remain contained. Cable and sensor illustrations are turned within the card using CSS only. Original image file unchanged.",
+    "usage_v17": "Product opening photograph in a 2:1 CSS frame. Enlarged viewer retains the complete original image. Source bytes unchanged."
+  },
+  {
+    "asset": "geothermal-section.webp",
+    "source": "Catalog-REPN-EN_3.pptx, embedded image1.png, slides 1",
+    "purpose": "Original catalogue image, format conversion only"
+  },
+  {
+    "asset": "gas-handling.webp",
+    "source": "Catalog REPN-EN-2025-12-02.pdf, page 46, embedded image 302 with alpha mask 301",
+    "purpose": "Original hydrocyclone gas separator rendering",
+    "usage_v15": "Shared 2:1 category image frame. Photographs use CSS cover; component illustrations remain contained. Cable and sensor illustrations are turned within the card using CSS only. Original image file unchanged.",
+    "usage_v17": "Product opening illustration in a 2:1 CSS frame using object-fit contain. Sensor rotated in this introductory frame only; viewer uses original orientation. Source bytes unchanged."
+  },
+  {
+    "asset": "curve-tp677-60.jpg",
+    "source": "Catalog-REPN-EN_3.pptx, slide 10, ppt/media/image15.jpg",
+    "purpose": "Unmodified original embedded performance curve; no page crop or resampling",
+    "width": 1221,
+    "height": 675
+  },
+  {
+    "asset": "curve-tp677-50.jpeg",
+    "source": "Catalog-REPN-EN_3.pptx, slide 11, ppt/media/image16.jpeg",
+    "purpose": "Unmodified original embedded performance curve; no page crop or resampling",
+    "width": 1716,
+    "height": 946
+  },
+  {
+    "asset": "curve-tp740-60.jpg",
+    "source": "Catalog-REPN-EN_3.pptx, slide 14, ppt/media/image22.jpg",
+    "purpose": "Unmodified original embedded performance curve; no page crop or resampling",
+    "width": 1174,
+    "height": 644
+  },
+  {
+    "asset": "curve-tp740-50.jpeg",
+    "source": "Catalog-REPN-EN_3.pptx, slide 15, ppt/media/image23.jpeg",
+    "purpose": "Unmodified original embedded performance curve; no page crop or resampling",
+    "width": 1693,
+    "height": 904
+  },
+  {
+    "asset": "curve-tp905-60.jpg",
+    "source": "Catalog-REPN-EN_3.pptx, slide 18, ppt/media/image28.jpg",
+    "purpose": "Unmodified original embedded performance curve; no page crop or resampling",
+    "width": 1178,
+    "height": 646
+  },
+  {
+    "asset": "curve-tp905-50.jpeg",
+    "source": "Catalog-REPN-EN_3.pptx, slide 19, ppt/media/image29.jpeg",
+    "purpose": "Unmodified original embedded performance curve; no page crop or resampling",
+    "width": 1851,
+    "height": 943
+  },
+  {
+    "asset": "curve-qj1047-60.jpg",
+    "source": "Catalog-REPN-EN_3.pptx, slide 22, ppt/media/image33.jpg",
+    "purpose": "Unmodified original embedded performance curve; no page crop or resampling",
+    "width": 1164,
+    "height": 639
+  },
+  {
+    "asset": "curve-qj1047-50.jpeg",
+    "source": "Catalog-REPN-EN_3.pptx, slide 23, ppt/media/image34.jpeg",
+    "purpose": "Unmodified original embedded performance curve; no page crop or resampling",
+    "width": 1770,
+    "height": 930
+  },
+  {
+    "asset": "precision-components.jpg",
+    "source": "https://cloud.mail.ru/public/5p3W/CkD2Zb13W/5Z0A1091.jpg",
+    "purpose": "Original supplied photo, full-frame 1200 × 800 rendition served by the public folder. No retouching or crop. Neutral equipment-production context; approved in Sergej email 10 September 2026.",
+    "source_filename": "5Z0A1091.jpg",
+    "usage_v9": "Homepage equipment and project support section, full-frame display. Original v8 file unchanged."
+  },
+  {
+    "asset": "component-machining.jpg",
+    "source": "https://cloud.mail.ru/public/5p3W/CkD2Zb13W/5Z0A1112.jpg",
+    "purpose": "Original supplied photo, full-frame 1200 × 800 rendition served by the public folder. No retouching or crop. Neutral equipment-production context; approved in Sergej email 10 September 2026.",
+    "source_filename": "5Z0A1112.jpg",
+    "usage_v17": "Company opening photograph, shown once in the split hero. Neutral equipment-production context, unchanged original file; CSS framing only. No ownership or location claim."
+  },
+  {
+    "asset": "repn-fzco-logo.png",
+    "source": "RF_Gruen_V4.png – selected and supplied by Stefan in this request",
+    "purpose": "Original file used byte-for-byte for header, footer and mobile menu. Navy #04213c; green #14835b."
+  },
+  {
+    "asset": "../favicon.svg",
+    "source": "RF_Gruen_V4.png",
+    "purpose": "SVG viewport displaying the RF monogram from the embedded original PNG; no retracing."
+  },
+  {
+    "asset": "SVG in components/repn/esp-diagram.tsx",
+    "source": "New code-native conceptual graphic based on the existing website equipment roles; no model-specific CAD source",
+    "purpose": "Interactive functional ESP overview. Surface control supplies a downhole motor via cable; pump, protector and motor shown in a simplified arrangement. Not to scale and not an installation drawing."
+  },
+  {
+    "asset": "well-parameters.svg",
+    "source": "User-supplied Equipment Selection Questionnaire_Template_(1).docx, well sketch and upper well-parameter table",
+    "purpose": "Code-native redraw with numbered references 1–7. No generated technical geometry or invented numerical values. Shared by website and print view; rasterized for the Word document.",
+    "numbering": [
+      {
+        "number": 1,
+        "name": "borehole_diameter",
+        "label": "Borehole diameter",
+        "unit": "mm / inch",
+        "help": "Select the unit for the diameter you enter."
+      },
+      {
+        "number": 2,
+        "name": "well_depth",
+        "label": "Well depth",
+        "unit": "m",
+        "help": "Depth from ground level to the bottom of the well."
+      },
+      {
+        "number": 3,
+        "name": "dynamic_level",
+        "label": "Dynamic water level",
+        "unit": "m",
+        "help": "Depth below ground level while pumping."
+      },
+      {
+        "number": 4,
+        "name": "static_level",
+        "label": "Static water level",
+        "unit": "m",
+        "help": "Depth below ground level when the well is at rest."
+      },
+      {
+        "number": 5,
+        "name": "flow",
+        "label": "Well flow rate",
+        "unit": "m³/h",
+        "help": "Flow rate for the requested operating point."
+      },
+      {
+        "number": 6,
+        "name": "temperature",
+        "label": "Water temperature",
+        "unit": "°C",
+        "help": "Water temperature for equipment selection."
+      },
+      {
+        "number": 7,
+        "name": "wellhead_pressure",
+        "label": "Design pressure at wellhead",
+        "unit": "bar",
+        "help": "Design pressure required at the wellhead."
+      }
+    ]
+  },
+  {
+    "asset": "operating-information.svg",
+    "source": "Existing optional enquiry fields in v17.2 and conceptual well arrangement based on the user-supplied questionnaire",
+    "purpose": "Manual code-native schematic with references 8–14. Optional operating-data guide, not to scale or model-specific. Pump installation reference point to be stated by customer.",
+    "usage_v17_3": "Opens with Additional operating information; matching field numbers and print inclusion.",
+    "usage_v17_4": "Requested timing, calendar and marker 15 removed at user request. References 8–14 retained."
+  }
+]

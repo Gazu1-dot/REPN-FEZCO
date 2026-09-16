@@ -1,0 +1,182 @@
+/* Version 15: one landscape image format and a clearer navigation bar. */
+
+/* Original image files are preserved; these rules affect selection cards only. */
+.equipment-card-media {
+  position:relative;
+  width:100%;
+  aspect-ratio:2 / 1;
+  flex:none;
+  overflow:hidden;
+  isolation:isolate;
+  background:#e8eeea;
+}
+.equipment-card-frame {
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.equipment-card-media img {
+  display:block;
+  width:100%;
+  height:100%;
+  max-width:none;
+  max-height:none;
+  object-fit:contain;
+}
+.equipment-card-media.is-photo img { object-fit:cover; object-position:center; }
+.equipment-card-media.is-component {
+  background:radial-gradient(ellipse at 48% 40%,#ffffff 0%,#f0f4f0 58%,#e4ebe5 100%);
+}
+.equipment-card-media.is-component .equipment-card-frame { padding:16px 22px; }
+.equipment-card-media[data-equipment="cables"] img,
+.equipment-card-media[data-equipment="sensors"] img {
+  position:absolute;
+  width:auto;
+  height:130%;
+  transform:rotate(65deg);
+}
+.equipment-card-media[data-equipment="cables"] img { mix-blend-mode:multiply; }
+.equipment-card-media[data-equipment="intakes"] .equipment-card-frame { padding:10px 22px; }
+.equipment-card-media[data-equipment="controls"] .equipment-card-frame { padding:14px 22px; }
+.equipment-card-media[data-equipment="coatings"] img { object-position:center 62%; }
+.catalogue-card,.portfolio-v9-item { border-radius:9px; }
+.portfolio-v9-item { display:flex; flex-direction:column; }
+.portfolio-v9-copy { flex:1; padding:22px; }
+.catalogue-card-copy { padding:25px; }
+.catalogue-card:hover,.portfolio-v9-item:hover {
+  border-color:#85aa96;
+  box-shadow:0 10px 28px #04213c0b;
+}
+
+/* The established header heights also keep the product tab bar aligned. */
+.site-header {
+  background:#fff;
+  border-bottom:1px solid #dce6df;
+  box-shadow:0 4px 20px #04213c06;
+}
+.site-header::before {
+  content:"";
+  position:absolute;
+  inset:0 0 auto;
+  height:2px;
+  background:linear-gradient(90deg,#04213c 0%,#04213c 35%,#14835b 78%,#8ac2a3 100%);
+}
+.header-inner {
+  width:min(1240px,calc(100% - 96px));
+  display:grid;
+  grid-template-columns:auto minmax(0,1fr) auto;
+  align-items:center;
+  gap:24px;
+  background:transparent;
+}
+.header-brand { display:flex; align-items:center; flex:none; border-radius:5px; }
+.header-brand .brand-supplied { width:208px; height:52px; }
+.desktop-nav {
+  justify-self:center;
+  gap:3px;
+  padding:5px;
+  border:1px solid #e1e9e3;
+  border-radius:12px;
+  background:#f3f6f3;
+  font-size:13px;
+  line-height:1.5;
+  font-weight:650;
+  white-space:nowrap;
+}
+.desktop-nav a {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:42px;
+  padding:10px 15px;
+  border-radius:8px;
+  color:#435b62;
+  border:1px solid transparent;
+}
+.desktop-nav a::after { display:none; }
+.desktop-nav a:hover { color:#0d6848; background:#e6eee7; }
+.desktop-nav a[aria-current="page"] {
+  color:#0d6848;
+  background:#fff;
+  border-color:#d3e2d7;
+  box-shadow:0 2px 5px #04213c08;
+}
+.header-actions { display:flex; align-items:center; justify-content:flex-end; gap:12px; }
+.header-cta {
+  min-width:124px;
+  min-height:46px;
+  padding:8px 10px 8px 17px;
+  gap:16px;
+  margin-left:0;
+  border-radius:9px;
+  background:var(--brand-navy);
+  border-color:var(--brand-navy);
+  font-size:13px;
+  font-weight:650;
+  box-shadow:0 3px 7px #04213c0d;
+}
+.header-cta-icon {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:28px;
+  height:28px;
+  border-radius:6px;
+  background:#ffffff15;
+}
+.header-cta:hover,.header-cta[aria-current="page"] { color:#fff; background:#0d6848; border-color:#0d6848; }
+.menu-trigger { border-radius:9px; background:#f3f6f3; border-color:#d7e2d9; }
+.menu-trigger:hover { color:#0d6848; background:#e6eee7; }
+.mobile-sheet { padding:26px!important; background:#fff; border-left:1px solid #d7e2d9; }
+.mobile-sheet .mobile-brand { width:200px; max-width:calc(100% - 28px); margin:9px 0 24px; }
+.mobile-sheet nav { margin-top:0; padding-top:22px; border-top:1px solid #dce6df; gap:7px; }
+.mobile-sheet nav a {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  min-height:52px;
+  padding:13px 15px;
+  border:1px solid transparent;
+  border-radius:8px;
+  font-size:16px;
+  font-weight:600;
+}
+.mobile-sheet nav a>svg { color:#718b7c; flex:none; }
+.mobile-sheet nav a:hover { background:#f2f6f2; }
+.mobile-sheet nav a[aria-current="page"] { color:#0d6848; background:#edf4ee; border-color:#d4e4d7; }
+.mobile-sheet nav a:last-child { margin-top:16px; padding:13px 15px; border-radius:8px; background:var(--brand-navy); color:#fff; }
+.mobile-sheet nav a:last-child:hover,.mobile-sheet nav a:last-child[aria-current="page"] { background:#0d6848; color:#fff; border-color:#0d6848; }
+.mobile-sheet nav a:last-child>svg { color:#fff; }
+.mobile-sheet>button { display:flex; align-items:center; justify-content:center; width:36px; height:36px; border-radius:8px; top:22px; right:20px; background:#f3f6f3; opacity:1; }
+
+@media(max-width:1100px) and (min-width:901px) {
+  .header-inner { width:calc(100% - 64px); gap:18px; }
+  .header-brand .brand-supplied { width:196px; height:49px; }
+  .desktop-nav a { padding-inline:12px; }
+  .header-cta { min-width:116px; gap:10px; padding-left:13px; }
+}
+@media(max-width:900px) {
+  .header-inner { width:calc(100% - 48px); grid-template-columns:minmax(0,1fr) auto; gap:18px; }
+  .desktop-nav { display:none; }
+  .catalogue-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .catalogue-card-copy { padding:22px; }
+}
+@media(max-width:650px) {
+  .catalogue-grid { grid-template-columns:1fr; gap:20px; }
+  .catalogue-card { display:flex; flex-direction:column; }
+  .catalogue-card-copy { border-left:0; border-top:1px solid var(--line); padding:23px; }
+  .catalogue-card-copy h3 { font-size:23px; }
+  .catalogue-card-copy p { font-size:14px; margin:12px 0 20px; }
+}
+@media(max-width:600px) {
+  .header-inner { width:calc(100% - 40px); gap:14px; }
+  .header-brand .brand-supplied { width:184px; height:46px; }
+  .header-cta { display:none; }
+  .portfolio-v9-grid { grid-template-columns:1fr; gap:20px; }
+  .portfolio-v9-copy { padding:21px 23px; }
+  .portfolio-v9-copy h3 { font-size:23px; }
+  .portfolio-v9-copy p { min-height:0; font-size:13px; margin-top:6px; }
+}

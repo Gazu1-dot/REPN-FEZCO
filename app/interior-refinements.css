@@ -1,0 +1,322 @@
+/* Version 17: focused interior pages, using the existing REPN-FZCO palette. */
+.interior-page { --interior-space:clamp(48px,6vw,80px); }
+.interior-page .page-hero { background:linear-gradient(110deg,#eef4f0,#f8faf8); padding-bottom:48px; }
+.interior-page .page-hero h1 { max-width:950px; letter-spacing:-.045em; }
+.interior-page .page-hero .intro { max-width:720px; }
+.interior-page .breadcrumbs { font-size:12px; flex-wrap:wrap; row-gap:7px; }
+.interior-page :is(#service-scope,#company-profile) { scroll-margin-top:112px; }
+.interior-page :is(a,button,input,textarea,summary):focus-visible { outline:2px solid #14835b; outline-offset:4px; }
+
+/* A photograph and one clear entry point on Services and Company. */
+.feature-hero { padding:27px 0 48px; background:#eef4f0; }
+.feature-hero .breadcrumbs { margin-bottom:25px; }
+.feature-hero-frame { display:grid; grid-template-columns:1.08fr 1fr; min-height:420px; background:#04213c; border-radius:10px; overflow:hidden; }
+.feature-hero-copy { min-width:0; padding:clamp(32px,4.1vw,56px); display:flex; align-items:flex-start; justify-content:center; flex-direction:column; }
+.feature-hero-copy .eyebrow { color:#a7d8bd; font-size:10px; letter-spacing:.14em; margin:0 0 24px; }
+.feature-hero-copy .eyebrow>span { background:#65bd91; }
+.feature-hero-copy h1 { color:#fff; font-weight:550; font-size:clamp(38px,4.15vw,58px); line-height:1.12; letter-spacing:-.045em; max-width:550px; margin:0; }
+.feature-hero-copy>p:not(.eyebrow) { color:#cedbe0; font-size:16px; line-height:1.8; max-width:460px; margin-top:22px; }
+.feature-hero-link { display:inline-flex; align-items:center; justify-content:space-between; gap:30px; border-bottom:1px solid #6aa88e; color:#c7ecd8; padding:12px 0; margin-top:24px; font-size:13px; font-weight:650; min-height:44px; }
+.feature-hero-link:hover { color:#fff; border-color:#fff; }
+.feature-hero-link svg { flex:none; }
+.feature-hero-copy .feature-hero-link:focus-visible { outline-color:#c7ecd8; }
+.feature-hero-photo { position:relative; margin:0; min-width:0; min-height:100%; background:#d7e1db; isolation:isolate; }
+.feature-hero-photo>img { display:block; position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center; }
+.feature-hero-photo:after { position:absolute; content:""; inset:55% 0 0; background:linear-gradient(transparent,#04213cbf); pointer-events:none; }
+.feature-hero-photo figcaption { position:absolute; z-index:1; left:25px; right:25px; bottom:22px; margin:0; padding:3px 0 3px 12px; border-left:2px solid #8ad0ac; color:#fff; font-size:10px; line-height:1.7; letter-spacing:.035em; }
+
+/* Six service areas in reading order; three concrete steps for an enquiry. */
+.interior-section-heading { display:grid; grid-template-columns:1fr 1fr; align-items:end; gap:60px; margin-bottom:36px; }
+.interior-section-heading h2,.company-profile h2 { font-size:clamp(30px,3vw,42px); line-height:1.17; letter-spacing:-.035em; font-weight:550; }
+.interior-section-heading>p { font-size:15px; line-height:1.85; color:#52646e; margin:0; max-width:520px; }
+.services-page .services-intro { padding-block:var(--interior-space); }
+.services-page .services-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 40px; }
+.services-page .service-card { display:flex; align-items:flex-start; gap:22px; min-width:0; padding:31px 0; border:0; border-top:1px solid #d9e3de; border-radius:0; box-shadow:none; background:#fff; }
+.services-page .service-card .service-number { display:inline-flex; align-items:center; justify-content:center; flex:none; width:38px; height:38px; padding:0; margin:0; background:#edf4ef; color:#0d6848; border-radius:50%; font-size:11px; font-weight:650; }
+.services-page .service-card h3 { font-size:22px; font-weight:550; letter-spacing:-.025em; line-height:1.35; margin:3px 0 12px; }
+.services-page .service-card p { color:#52646e; font-size:14px; line-height:1.85; margin:0; max-width:450px; }
+.services-page .service-process { padding-block:var(--interior-space); background:#eef4f0; border-block:1px solid #e0e8e2; }
+.service-brief-steps { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); list-style:none; counter-reset:none; margin:0; padding:0; }
+.service-brief-steps>li { min-width:0; padding:0 30px; border-left:1px solid #ccdcd2; }
+.service-brief-steps>li:first-child { border-left:0; padding-left:0; }
+.service-brief-steps>li:last-child { padding-right:0; }
+.brief-step-number { display:block; font-size:36px; font-weight:500; letter-spacing:-.05em; color:#14835b; line-height:1; margin:0 0 23px; }
+.service-brief-steps h3 { font-size:21px; font-weight:550; line-height:1.4; letter-spacing:-.025em; margin:0 0 13px; }
+.service-brief-steps p { font-size:14px; color:#52646e; line-height:1.85; margin:0; }
+
+/* Compact company profile and two direct destinations. */
+.company-profile { display:grid; grid-template-columns:1fr 1fr; gap:60px; padding-block:var(--interior-space); align-items:start; }
+.company-established { display:flex; align-items:center; gap:17px; border-left:2px solid #14835b; padding:5px 0 5px 16px; margin-top:30px; }
+.company-established>span { color:#52646e; font-size:12px; }
+.company-established>strong { color:#04213c; font-size:16px; font-weight:600; }
+.company-profile-copy { padding-top:30px; }
+.company-profile-copy>p { font-size:16px; line-height:1.85; color:#52646e; max-width:540px; }
+.company-profile-copy>p:first-child { font-size:21px; color:#04213c; line-height:1.6; letter-spacing:-.02em; }
+.company-profile-copy>p+p { margin-top:21px; }
+.company-next { padding-block:var(--interior-space); }
+.company-page .company-process { background:#eef4f0; border-block:1px solid #e0e8e2; }
+.company-route-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; }
+.company-route { display:flex; flex-direction:column; min-width:0; border:1px solid #d9e3de; border-radius:8px; background:#fff; padding:32px; transition:border-color .2s ease,box-shadow .2s ease; }
+.company-route-number { font-size:10px; letter-spacing:.11em; font-weight:650; color:#0d6848; }
+.company-route h3 { font-size:27px; line-height:1.3; letter-spacing:-.035em; font-weight:550; margin:23px 0 13px; }
+.company-route p { font-size:15px; color:#52646e; line-height:1.8; max-width:400px; margin:0 0 30px; }
+.company-route-action { display:flex; justify-content:space-between; align-items:center; gap:20px; border-top:1px solid #e3ebe5; padding-top:21px; margin-top:auto; color:#0d6848; font-size:13px; font-weight:650; }
+.company-route-action svg { flex:none; }
+.company-route:hover { border-color:#91bda2; box-shadow:0 9px 28px #04213c07; }
+.company-route:hover .company-route-action { color:#04213c; }
+
+/* Product overview: generous photography, complete cutouts and readable data. */
+.product-page .product-heading { padding:27px 0 40px; background:linear-gradient(110deg,#eef4f0,#f8faf8); }
+.product-page .product-heading .breadcrumbs { margin-bottom:28px; }
+.product-page .product-heading-grid { grid-template-columns:minmax(0,1.1fr) minmax(0,1fr); gap:52px; align-items:center; }
+.product-page .product-heading-copy { align-self:center; min-width:0; }
+.product-page .product-heading h1 { font-size:clamp(36px,4vw,56px); letter-spacing:-.045em; line-height:1.12; }
+.product-page .product-heading-copy .eyebrow { font-size:10px; letter-spacing:.09em; margin-bottom:20px; }
+.product-page .product-heading-copy .product-heading-summary { font-size:16px; line-height:1.85; color:#52646e; margin-top:22px; max-width:530px; }
+.product-page .product-heading-image { grid-column:2; grid-row:1; width:100%; margin:0; }
+.product-page .product-heading-image .technical-image-trigger { width:100%; height:auto; aspect-ratio:2/1; padding:22px; min-height:0!important; border:1px solid #d9e3de; border-radius:8px; background:radial-gradient(ellipse at 50% 30%,#fff,#e8efeb); overflow:hidden; }
+.product-page .product-heading-image .technical-image-trigger>img { width:100%!important; height:100%!important; max-width:100%; max-height:100%; object-fit:contain!important; }
+.product-page .product-photo .technical-image-trigger { padding:0; background:#dce4de; }
+.product-page .product-photo .technical-image-trigger>img { object-fit:cover!important; }
+.product-page .product-image-sensors .technical-image-trigger>img { transform:rotate(65deg)!important; }
+.product-page .product-heading-image .image-open-label { right:12px; bottom:12px; font-size:10px; gap:6px; padding:7px 9px; border-radius:4px; background:#fff; color:#04213c; }
+.product-page .product-heading-image figcaption { font-size:10px; line-height:1.6; color:#52646e; text-align:left; margin:9px 0 0; }
+.product-page .cable-heading-mark { grid-column:2; grid-row:1; align-self:center; width:100%; aspect-ratio:2/1; display:flex; flex-direction:column; justify-content:center; padding:30px 38px; border:1px solid #163c50; border-radius:8px; background:linear-gradient(125deg,#04213c,#0a3744); }
+.product-page .cable-heading-mark strong { color:#fff; font-size:70px; line-height:1; letter-spacing:-.055em; font-weight:500; }
+.product-page .cable-heading-mark strong span { font-size:29px; letter-spacing:-.02em; color:#b9e3cc; }
+.product-page .cable-heading-mark p { font-size:16px; color:#e0ece7; line-height:1.5; margin-top:17px; }
+.product-page .cable-heading-mark>span { font-size:10px; color:#a4d4b9; letter-spacing:.09em; margin-top:9px; }
+.product-page .product-spec-toolbar { box-shadow:0 5px 15px #04213c04; }
+.product-page .product-spec-toolbar>.container { min-height:75px; }
+.product-page .product-application-tabs { gap:10px; padding-block:11px; }
+.product-page .product-application-tabs button { border:1px solid transparent; border-radius:5px; min-height:46px; padding:10px 18px; font-size:14px; color:#52646e; }
+.product-page .product-application-tabs button[aria-selected="true"] { color:#fff; background:#04213c; border-color:#04213c; }
+.product-page .product-application-tabs button[aria-selected="false"]:hover { background:#eef4f0; color:#04213c; }
+.product-page .product-data-download { min-height:44px; font-size:12px; gap:9px; padding:9px 13px; border:1px solid #cbded1; border-radius:5px; color:#0d6848; }
+.product-page .product-data-download:hover { background:#edf4f0; }
+.product-page .product-single-application { font-size:14px; }
+.product-page .product-specs { padding-block:48px 60px; }
+.product-page .product-panel h2 { font-size:clamp(29px,3vw,40px); line-height:1.2; letter-spacing:-.035em; }
+.product-page .product-panel .section-intro { max-width:850px; font-size:15px; line-height:1.85; margin-top:16px; margin-bottom:28px; }
+.product-page .product-panel .technical-subsection { margin-top:50px; padding-top:44px; }
+.product-page .product-panel .selector-toolbar { gap:20px; padding-bottom:22px; }
+.product-page .product-panel .data-options button { min-height:43px; border-radius:5px; font-size:13px; }
+.product-page .product-panel .pump-data { border:1px solid #d9e3de; border-radius:8px; background:#f3f7f4; box-shadow:none; }
+.product-page .product-panel .spec-table { border:1px solid #d9e3de; border-radius:7px; }
+.product-page .spec-table th { background:#edf3ef!important; color:#163c35!important; font-size:12px; line-height:1.6; padding:15px 18px; }
+.product-page .spec-table td { font-size:14px; line-height:1.7; padding:14px 18px; font-variant-numeric:tabular-nums; border-color:#e3ebe6; }
+.product-page .spec-table td:first-child { color:#04213c; font-weight:600; }
+.product-page .spec-table tbody tr:nth-child(even) td { background:#f7f9f7; }
+.product-page .spec-table caption { font-size:12px; line-height:1.75; color:#52646e; padding:13px 18px; }
+.product-page .table-scroll-hint { font-size:12px; line-height:1.7; margin-bottom:9px; }
+.product-page .product-enquiry { background:#eef4f0; border-block:1px solid #d9e3de; }
+
+/* Small adjustments keep Equipment, Downloads and Contact familiar. */
+.equipment-page .catalogue-group-heading { padding-bottom:6px; }
+.equipment-page .catalogue-card { border-radius:8px; }
+.equipment-page .catalogue-card-copy { padding:25px; }
+.equipment-page .catalogue-card-copy h3 { line-height:1.3; letter-spacing:-.025em; }
+.resources-page .page-content { padding-block:50px 70px; }
+.resources-page .resource-list { display:grid; gap:16px; }
+.resources-page .resource-row { display:grid; grid-template-columns:48px minmax(0,1fr) auto 44px; gap:23px; align-items:center; padding:29px; border-radius:8px; transition:background .2s ease,border-color .2s ease; }
+.resources-page .resource-row>div { min-width:0; }
+.resources-page .resource-number { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:7px; color:#0d6848; font-size:10px; font-variant-numeric:tabular-nums; }
+.resources-page .resource-row h2 { font-size:23px; line-height:1.35; letter-spacing:-.025em; }
+.resources-page .resource-row p { font-size:14px; line-height:1.8; margin-top:10px; max-width:650px; }
+.resources-page .resource-type { border:1px solid #d8e8dd; background:#edf4ef; padding:5px 9px; }
+.resource-download { width:42px; height:42px; display:flex; justify-content:center; align-items:center; background:#edf4ef; border-radius:50%; color:#0d6848; }
+.resources-page .resource-row:hover .resource-download { background:#14835b; color:#fff; }
+.resources-page .resources-help { padding:34px 37px; margin-top:35px; background:#eef4f0; border:1px solid #d9e3de; border-radius:8px; }
+.resources-page .resources-help h2 { font-size:27px; letter-spacing:-.035em; }
+.resources-page .resources-help p { font-size:14px; line-height:1.85; max-width:900px; }
+.contact-page .contact-layout { grid-template-columns:minmax(0,.8fr) minmax(0,1.45fr); gap:38px; padding-block:50px 70px; }
+.contact-page .contact-layout aside { position:sticky; top:112px; border:1px solid #163c50; border-radius:8px; padding:33px; background:linear-gradient(135deg,#04213c,#0a3744); }
+.contact-page .contact-email { font-size:18px; gap:9px; line-height:1.6; }
+.contact-page .contact-email svg { flex:none; }
+.contact-page .contact-email:focus-visible { outline-color:#bce8ce; }
+.contact-page .enquiry-form { min-width:0; padding:34px; border-radius:8px; border:1px solid #d9e3de; }
+.contact-page .enquiry-form>h2 { font-size:29px; letter-spacing:-.035em; }
+.contact-page .enquiry-fieldset { margin-top:29px; }
+.contact-page .enquiry-fieldset+ .enquiry-fieldset { border-top:1px solid #e1e9e4; padding-top:25px; }
+.contact-page .enquiry-fieldset legend { font-size:15px; padding-right:12px; }
+.contact-page .form-grid { gap:21px; }
+.contact-page :is(.form-grid input,.form-grid textarea,.form-select) { background:#fcfdfb; }
+.contact-page .technical-form-details { border:1px solid #d9e3de; border-radius:6px; padding:0 19px; margin-top:29px; background:#f5f8f5; }
+.contact-page .technical-form-details summary { padding:20px 28px 20px 0; font-size:14px; line-height:1.5; }
+.contact-page .technical-form-details summary>span { font-size:11px; line-height:1.6; }
+.contact-page .enquiry-notes { margin-top:26px; }
+
+@media(max-width:1000px) {
+ .feature-hero-frame { grid-template-columns:1.1fr 1fr; min-height:390px; }
+ .feature-hero-copy { padding:34px; }
+ .feature-hero-copy h1 { font-size:43px; }
+ .feature-hero-copy>p:not(.eyebrow) { font-size:15px; }
+ .interior-section-heading,.company-profile { gap:35px; }
+ .services-page .services-grid { column-gap:28px; }
+ .services-page .service-card { gap:16px; }
+ .services-page .service-card h3 { font-size:20px; }
+ .product-page .product-heading-grid { gap:32px; }
+ .contact-page .contact-layout { grid-template-columns:minmax(0,.85fr) minmax(0,1.35fr); gap:25px; }
+ .contact-page .contact-layout aside,.contact-page .enquiry-form { padding:26px; }
+ .contact-page .contact-email { font-size:16px; }
+}
+@media(max-width:900px) {
+ .contact-page .contact-layout { grid-template-columns:1fr; }
+ .contact-page .contact-layout aside { position:static; }
+ .contact-page .contact-email { font-size:18px; }
+ .product-page .product-heading-copy .product-heading-summary { font-size:15px; }
+ .company-route { padding:27px; }
+ .company-route h3 { font-size:24px; }
+}
+@media(max-width:700px) {
+ .feature-hero { padding-top:23px; padding-bottom:28px; }
+ .feature-hero-frame { grid-template-columns:1fr; min-height:0; }
+ .feature-hero-copy { padding:34px; }
+ .feature-hero-copy h1 { font-size:clamp(36px,7.4vw,49px); max-width:500px; }
+ .feature-hero-copy>p:not(.eyebrow) { max-width:560px; }
+ .feature-hero-copy .eyebrow { margin-bottom:20px; }
+ .feature-hero-link { margin-top:17px; }
+ .feature-hero-photo { min-height:0; aspect-ratio:2/1; }
+ .feature-hero-photo figcaption { left:20px; bottom:17px; }
+ .interior-section-heading,.company-profile { grid-template-columns:1fr; gap:23px; }
+ .interior-section-heading { margin-bottom:28px; }
+ .interior-section-heading>p { max-width:100%; }
+ .services-page .services-grid { grid-template-columns:1fr; }
+ .services-page .service-card { padding-block:25px; gap:20px; }
+ .services-page .service-card h3 { font-size:22px; }
+ .services-page .service-card p { max-width:100%; }
+ .service-brief-steps { grid-template-columns:1fr; }
+ .service-brief-steps>li,.service-brief-steps>li:first-child,.service-brief-steps>li:last-child { display:grid; grid-template-columns:40px minmax(0,1fr); column-gap:20px; padding:23px 0; border-left:0; border-top:1px solid #ccdcd2; }
+ .service-brief-steps>li:last-child { padding-bottom:0; }
+ .brief-step-number { font-size:26px; grid-row:1/3; margin-top:4px; }
+ .service-brief-steps h3 { font-size:21px; }
+ .service-brief-steps p { grid-column:2; }
+ .company-profile-copy { padding-top:0; }
+ .company-profile-copy>p { max-width:100%; }
+ .company-profile-copy>p:first-child { font-size:19px; }
+ .company-established { margin-top:23px; }
+ .company-route-grid { grid-template-columns:1fr; gap:17px; }
+ .company-route p { max-width:100%; }
+ .product-page .product-heading-grid { grid-template-columns:1fr; gap:27px; }
+ .product-page .product-heading-image,.product-page .cable-heading-mark { grid-column:1; grid-row:auto; }
+ .product-page .product-heading h1 { font-size:clamp(34px,7.5vw,48px); }
+ .product-page .product-heading-copy .eyebrow { font-size:10px; margin-bottom:17px; }
+ .product-page .product-heading-copy .product-heading-summary { margin-top:18px; max-width:100%; }
+ .product-page .product-heading-image .technical-image-trigger { max-height:300px; }
+ .product-page .cable-heading-mark { max-height:270px; padding:27px 32px; }
+ .product-page .cable-heading-mark strong { font-size:60px; }
+ .product-page .cable-heading-mark p { font-size:15px; }
+ .product-page .product-spec-toolbar>.container { min-height:68px; gap:10px; }
+ .product-page .product-application-tabs { gap:5px; padding-block:10px; }
+ .product-page .product-application-tabs button { font-size:13px; padding:10px 12px; }
+ .product-page .product-data-download { padding:9px 10px; font-size:11px; gap:6px; }
+ .product-page .product-data-download>span { display:none; }
+ .product-page .product-single-application { font-size:12px; }
+ .product-page .product-specs { padding-block:35px 42px; }
+ .product-page .spec-table th,.product-page .spec-table td { padding:13px 15px; }
+ .product-page .spec-table td { font-size:13px; }
+ .resources-page .resource-row { grid-template-columns:36px minmax(0,1fr) 36px; gap:9px 15px; padding:24px 20px; }
+ .resources-page .resource-number { align-self:start; padding-top:3px; grid-column:1; grid-row:1; }
+ .resources-page .resource-row>div { grid-column:2; grid-row:1; }
+ .resources-page .resource-row h2 { font-size:21px; }
+ .resources-page .resource-row p { font-size:13px; }
+ .resources-page .resource-type { grid-column:2; justify-self:start; font-size:10px; padding:4px 7px; }
+ .resource-download { grid-column:3; grid-row:1/3; width:36px; height:36px; }
+ .resources-page .resources-help { padding:27px; }
+ .resources-page .resources-help h2 { font-size:25px; }
+}
+@media(max-width:600px) {
+ .interior-page .page-hero { padding-bottom:33px; }
+ .interior-page .page-hero .intro { font-size:15px; }
+ .feature-hero-copy { padding:29px 26px; }
+ .feature-hero-copy h1 { font-size:38px; }
+ .feature-hero-copy>p:not(.eyebrow) { font-size:14px; line-height:1.85; }
+ .feature-hero-photo figcaption { font-size:9px; left:18px; right:18px; bottom:14px; }
+ .product-page .product-heading { padding:23px 0 29px; }
+ .product-page .product-heading .breadcrumbs { margin-bottom:25px; }
+ .product-page .product-heading-copy .eyebrow { letter-spacing:.06em; }
+ .product-page .product-heading-image .technical-image-trigger { padding:18px; }
+ .product-page .product-photo .technical-image-trigger { padding:0; }
+ .product-page .product-panel .technical-subsection { margin-top:36px; padding-top:32px; }
+ .resources-page .page-content,.contact-page .contact-layout { padding-block:32px 48px; }
+ .contact-page .contact-layout aside,.contact-page .enquiry-form { padding:25px; }
+ .contact-page .form-grid { grid-template-columns:1fr; }
+ .contact-page .technical-form-details { padding-inline:15px; }
+ .contact-page .technical-form-details summary { display:block; }
+ .contact-page .technical-form-details summary>span { display:block; margin:5px 0 0; }
+}
+@media(max-width:380px) {
+ .feature-hero-copy { padding:27px 23px; }
+ .feature-hero-copy h1 { font-size:34px; }
+ .product-page .product-application-tabs button { padding-inline:9px; font-size:12px; }
+ .product-page .product-data-download { padding-inline:8px; gap:5px; }
+ .product-page .product-data-download svg { width:14px; }
+ .resources-page .resource-row { padding:21px 17px; column-gap:10px; }
+ .resources-page .resource-row h2 { font-size:19px; }
+ .contact-page .contact-layout aside,.contact-page .enquiry-form { padding:22px; }
+}
+@media(prefers-reduced-motion:reduce) {
+ .interior-page * { scroll-behavior:auto!important; }
+ .company-route,.resources-page .resource-row { transition:none; }
+}
+
+/* Version 17.2: customer questionnaire and a print layout with its reference drawing. */
+.contact-reference-column { min-width:0; display:flex; flex-direction:column; gap:25px; }
+.contact-page .contact-reference-column aside { position:static; }
+.well-reference { border:1px solid #d9e3de; border-radius:8px; padding:25px; background:#fff; }
+.well-reference h2 { font-size:27px; letter-spacing:-.03em; }
+.well-reference>p:not(.eyebrow) { font-size:13px; line-height:1.8; margin-top:14px; color:#52646e; }
+.well-reference .technical-image { margin-block:20px; }
+.well-reference .technical-image-trigger { display:flex; width:100%; height:470px; padding:10px; justify-content:center; }
+.well-reference .technical-image-trigger img { width:100%; height:100%; }
+.well-reference figcaption { font-size:11px; line-height:1.7; margin-top:10px; }
+.well-reference .text-link { font-size:12px; line-height:1.7; align-items:center; }
+.contact-page .form-required-note { margin-top:12px; line-height:1.8; color:#52646e; }
+.required-marker { color:#0d6848; font-weight:750; margin-left:3px; }
+.contact-page .required-well-fields>.form-help { margin-bottom:19px; }
+.well-parameter>label { display:flex; gap:7px; align-items:center; flex-wrap:wrap; min-height:31px; }
+.parameter-number { display:inline-flex; justify-content:center; align-items:center; flex:none; width:25px; height:25px; border-radius:50%; background:#14835b; color:#fff!important; font-size:12px; font-weight:700; }
+.field-with-unit { display:flex; align-items:stretch; margin-top:8px; border:1px solid #b8c7bd; border-radius:4px; background:#fcfdfb; }
+.contact-page .field-with-unit input { min-width:0; width:100%; border:0!important; margin:0; background:transparent; }
+.field-with-unit>span { display:flex; align-items:center; padding:0 12px; color:#52646e; font-size:12px; white-space:nowrap; }
+.field-with-unit>select { width:76px; flex:none; padding:8px; border:0; border-left:1px solid #d9e3de; color:#04213c; background:#edf4ef; font-size:12px; border-radius:0 3px 3px 0; }
+.field-hint { font-size:11px; line-height:1.7; margin-top:8px; color:#52646e; }
+.form-print-actions { border-top:1px solid #d9e3de; margin-top:24px; padding-top:24px; }
+.form-print-actions>p { color:#52646e; font-size:12px; line-height:1.7; margin-top:12px; }
+.enquiry-print { display:none; }
+@media(max-width:900px) {
+ .contact-reference-column { display:grid; grid-template-columns:1fr 1fr; align-items:start; }
+ .well-reference .technical-image-trigger { height:360px; }
+}
+@media(max-width:650px) {
+ .contact-reference-column { display:flex; }
+ .well-reference .technical-image-trigger { height:370px; }
+ .well-reference { padding:24px; }
+}
+/* Version 17.3: optional operating sketch opens with its eight fields. */
+.operating-reference { margin:22px 0 27px; }
+.operating-reference .technical-image-trigger { display:flex; justify-content:center; width:100%; padding:14px 14px 40px; border:1px solid #d9e3de; border-radius:6px; background:#fff; }
+.operating-reference .technical-image-trigger img { display:block; width:100%; max-height:600px; height:auto; object-fit:contain; }
+.operating-reference figcaption { margin-top:10px; font-size:11px; line-height:1.7; color:#52646e; }
+.operating-field-label { display:flex; align-items:center; gap:7px; flex-wrap:wrap; color:#04213c!important; font-size:13px!important; line-height:1.5; }
+.operating-number { background:#04213c; }
+.operating-unit { color:#52646e; font-size:11px; font-weight:400; }
+.operating-field>.field-hint { display:block; font-size:11px!important; line-height:1.7; margin:8px 0 0; font-weight:400; }
+@media(max-width:650px) {
+ .operating-reference .technical-image-trigger { padding:7px 7px 37px; }
+ .operating-reference .image-open-label { font-size:10px; }
+}
+
+/* Version 17.5: download and print share the actual Word template. */
+.form-secondary-actions { display:flex; flex-wrap:wrap; gap:24px; margin-top:20px; }
+.enquiry-form button:disabled { opacity:.55; cursor:not-allowed; transform:none; }
+.enquiry-honeypot { position:absolute; left:-10000px; width:1px; height:1px; overflow:hidden; }
+.questionnaire-print-instruction { display:none; }
+@media print {
+ body:has(.contact-page) :is(.site-header,.site-footer,.skip-link,.page-hero,.contact-reference-column) { display:none!important; }
+ .contact-page .enquiry-form>*:not(.questionnaire-print-instruction) { display:none!important; }
+ .contact-page .questionnaire-print-instruction { display:block!important; font:12pt Arial,sans-serif; color:#000; }
+}
+
+/* Oilfield cable reference tables */
+.oilfield-cables>h3{margin-top:2.8rem;margin-bottom:1rem}.cable-detail{border:1px solid var(--line,#d8e3d9);border-radius:6px;margin-top:1.25rem;padding:1.25rem 1.5rem}.cable-detail summary{font-weight:600;color:#04213c;cursor:pointer;line-height:1.5}.cable-detail[open] summary{margin-bottom:1.3rem}.cable-detail>p{line-height:1.7;color:#53685e}.cable-detail summary:focus-visible{outline:2px solid #14835b;outline-offset:5px}.oilfield-cables .cable-model-title{align-items:flex-start}.oilfield-cables .cable-model-title h3{font-size:1.35rem;line-height:1.3}.oilfield-cables .cable-envelope strong{display:block;margin-top:.4rem}@media(max-width:600px){.cable-detail{padding:1rem}.oilfield-cables .cable-model-title h3{font-size:1.15rem}}@media print{.cable-detail{break-inside:avoid}}

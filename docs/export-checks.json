@@ -1,0 +1,57 @@
+{
+  "version": "0.18.0",
+  "base": "0.17.8",
+  "change": "Native scroll homepage and sticky five-part ESP explanation",
+  "production_build": "passed",
+  "typescript": "passed",
+  "eslint": "passed",
+  "functional_dom_checks": {
+    "passed": true,
+    "checks": [
+      "homepage sections and single h1",
+      "five scroll-driven components",
+      "manual component jump and focus",
+      "system pause/resume and persistence",
+      "hero pause/resume",
+      "scroll progress",
+      "oil application link and power heading",
+      "separate oil cable content",
+      "four PDF downloads",
+      "contact form and DOCX link retained",
+      "navigation back home"
+    ],
+    "runtimeErrors": []
+  },
+  "static_export": {
+    "internal_links_checked": 382,
+    "image_references_checked": 65,
+    "broken_targets": []
+  },
+  "protected_baseline_files_byte_identical": 44,
+  "interactive_preview": {
+    "embedded_files": 33,
+    "byte_identical": true,
+    "shell_checks": [
+      "iframe source generated",
+      "desktop/mobile controls",
+      "no shell runtime errors"
+    ],
+    "browser_visual_check": false
+  },
+  "browser_visual_check": false,
+  "live_email_test": false,
+  "new_github_comparison": false,
+  "deployed": false,
+  "source_package_files": 99,
+  "changed_files": [
+    "README.md",
+    "app/homepage-experience.css",
+    "components/repn/premium-hero.tsx",
+    "components/repn/site.tsx",
+    "components/repn/system-explorer.tsx",
+    "docs/PRUEFBERICHT.md",
+    "docs/export-checks.json",
+    "package-lock.json",
+    "package.json"
+  ]
+}
