@@ -288,3 +288,8 @@ Die technischen Produktdaten, Kabelausführungen, Downloads, E-Mail-Funktion und
 Gestalterische Weiterentwicklung der ausgelieferten Version 19. Die Feldszene wurde mit eigener prozeduraler Geometrie neu aufgebaut: felsiges Gelände mit Bergrücken, befestigte Bohrplätze, Rohrtrassen auf Tragwerken und offene Prozessskids. Es ist kein reales REPN-Projekt und keine maßstäbliche Anlagenplanung. Komponentenfunktionen und technische Angaben bleiben aus dem bisherigen Datenbestand erhalten; aus der zusätzlichen Oberflächenausstattung wird kein Lieferumfang abgeleitet.
 
 Keine neuen Quellen für Leistungs- oder Auslegungswerte. Alle 44 Dateien aus public, api, lib und vercel.json sind gegenüber Version 19 byte-identisch. Die Bilddateien bleiben unverändert; verändert wurden die codegenerierte 3D-Szene sowie Komposition, Farben und Bewegung der Homepage.
+
+
+## Landschaftseinstieg und Scroll-Verlauf – Version 21
+
+Das bestehende Bild manufacturing-hero.webp aus Version 17.8 wurde unverändert als dauerhafter Startzustand eingebunden. Es bleibt eine illustrative, generierte Landschaft, keine dokumentierte Referenzanlage. Der Wechsel in die 3D-Darstellung erfolgt ausschließlich anhand des Seitenscrolls. Keine neue Grafikquelle und keine neuen technischen Angaben. Die Geometrie aus Version 20 bleibt unverändert; geändert wurden Kamerainterpolation, Fortschrittssteuerung und Überblendung.

@@ -1,7 +1,7 @@
 {
-  "version": "0.20.0",
-  "base": "0.19.0",
-  "scope": "Desktop industrial 3D environment, native scroll parallax and homepage composition; no new mobile experience",
+  "version": "0.21.0",
+  "base": "0.20.0",
+  "scope": "Persistent landscape opening; scroll-only dissolve; synchronized smoothed progress and continuous camera velocity",
   "production_build": "passed",
   "typescript": "passed",
   "eslint": "passed",
@@ -10,6 +10,9 @@
     "meshes": 300,
     "triangles": 113702,
     "cameraContinuity": true,
+    "cameraVelocityContinuity": true,
+    "landscapeScrollOnly": true,
+    "frameRateIndependentDamping": true,
     "reversibleTransforms": true,
     "chapterCount": 9,
     "activePartProjections": [
@@ -44,6 +47,9 @@
   "functional_dom_checks": {
     "passed": true,
     "checks": [
+      "landscape stays at rest",
+      "scroll-only landscape dissolve and zoom",
+      "landscape restored at top",
       "single persistent h1",
       "WebGL-unavailable fallback",
       "nine scroll chapters",
@@ -75,7 +81,6 @@
       "asset-sources.json",
       "components/repn/esp-diagram.tsx",
       "components/repn/premium-hero.tsx",
-      "components/repn/site.tsx",
       "components/repn/system-explorer.tsx",
       "docs/QUELLEN.md",
       "package-lock.json",
@@ -87,9 +92,9 @@
     "byte_identical": true,
     "desktop_only_shell": true,
     "shellRuntimeErrors": [],
-    "html_bytes": 10257784
+    "html_bytes": 10249669
   },
-  "visual_review": "Native SVG geometry projections inspected; limitations from painter sorting, no WebGL screenshot",
+  "visual_review": "Existing landscape image inspected; scroll state and camera numerically/DOM tested",
   "browser_gpu_test": false,
   "source_package_files": 99,
   "new_github_comparison": false,
@@ -101,7 +106,6 @@
     "asset-sources.json",
     "components/repn/esp-diagram.tsx",
     "components/repn/premium-hero.tsx",
-    "components/repn/site.tsx",
     "components/repn/system-explorer.tsx",
     "docs/PRUEFBERICHT.md",
     "docs/QUELLEN.md",

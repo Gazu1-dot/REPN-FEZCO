@@ -1,30 +1,29 @@
-# Prüfbericht – Version 20 / Industrial Desktop 3D
+# Prüfbericht – Version 21 / Landschaftseinstieg und weicher Scroll-Verlauf
 
-Datum: 16.09.2026. Ausgangsstand: ausgeliefertes ZIP Version 19.
+Datum: 16.09.2026. Ausgangsstand: ausgeliefertes ZIP Version 20.
 
-## Umsetzung
+## Änderungen
 
-Das bisherige einfache Feld wurde durch ein prozedurales Industriegelände ersetzt: modellierte Felsrücken, befestigte Flächen und Straßen, detailliertere Bohrlochköpfe, Instrumente, Rohrbrücken, offene Prozessskids, Behälter, Wartungsstege, Geländer und Leitern. Der erste Kameraausschnitt wurde für die größere Anlage erweitert. Materialfarben und Beleuchtung sind zurückhaltender. Die 3D-Reise und die bestehenden technischen Inhalte bleiben verfügbar.
+Das vorhandene Landschaftsbild bleibt bei Scrollposition null dauerhaft sichtbar, auch nach dem Laden der 3D-Szene. Erst Scrollfortschritt erzeugt einen leichten Bildzoom und eine Überblendung. Beim Zurückscrollen kehrt das Bild vollständig zurück. Die Fotoebene liegt ausdrücklich über der WebGL-Ebene; ihr Zustand hängt nicht an einem Lade-Timer.
 
-Die Homepage besitzt zusätzliche Bild-/Text-Parallax, leichte Kartenneigung, einen typografischen Zwischenabschnitt, versetzte Anwendungskarten, Abschnittslinks, Lesefortschritt und eine gemeinsame Bewegungspause. Reduzierte Bewegung wird berücksichtigt; normaler Dokument-Scroll bleibt erhalten. Keine neue Handyfassung.
+Kamera, Kapiteltext, Fortschrittsleiste und Bildübergang teilen einen geglätteten Scrollzustand. Die separate zweite Glättung der Kamera entfällt. Formtreue kubische Interpolation ersetzt die an jedem Kamera-Schlüsselpunkt anhaltende Interpolation. Kapitelbuttons nutzen weichen nativen Browser-Scroll, bei reduzierter Bewegung direkte Anwahl. Die Geometrie bleibt unverändert.
 
 ## Bestanden
 
-- Next.js-Produktions-Build und TypeScript-Prüfung; ESLint.
-- Geometrie: 300 Mesh-Objekte, rechnerisch 113.702 Dreiecke einschließlich Instanzen; geprüfte Positionswerte endlich. Statische Oberflächengeometrie nach Material zusammengefasst. Kein Bildraten-Benchmark.
-- Neun Kamera-/Informationskapitel; stetige Übergänge an den Kameraschlüsseln und reversible Baugruppenpositionen.
-- Aktive Baugruppen liegen an den fünf Komponentenschritten im vorgesehenen Kamerabereich.
-- DOM: Hauptüberschrift, WebGL-Ersatzansicht, neun Scroll-Kapitel, fünf Komponenten-Direktwahlen, Produktlinks, Vor/Zurück, Überspringen zur Anwendungsauswahl.
-- Gemeinsamer Zustand der beiden Bewegungsschalter, Parallax-Veränderung und Reset, Kartenneigung und Reset, vier Abschnittslinks, Umschalten und Wiederherstellen der Systempräferenz für reduzierte Bewegung.
-- Oil-&-Gas-Kabelansicht mit separatem Inhalt, vier PDF-Downloads, Anfrageformular/Word-Link und Rückweg zur Homepage.
-- 376 interne Links und 65 Bildreferenzen im Export: keine fehlenden Ziele.
-- 44 Dateien aus public, api, lib sowie vercel.json gegenüber Version 19 byte-identisch.
-- Desktop-HTML: 33 eingebettete Dateien byte-identisch mit den Quelldateien. Vorschauhülle erzeugt den iframe ohne erfasste JavaScript-Fehler. Keine Handy-Umschaltung.
+- Produktions-Build, TypeScript und ESLint.
+- Neun Kapitel sowie kontinuierliche Kamerapositionen und Kamerageschwindigkeiten an den Schlüsselstellen.
+- Zeitbasierte Fortschrittsglättung liefert bei 60 und 120 Schritten pro Sekunde in der numerischen Prüfung dasselbe Ergebnis. Keine Behauptung gemessener Bildraten.
+- Kein Fortschritt und kein Bildwechsel ohne Scrollen; definierte Überblendung innerhalb des Einstiegsbereichs; Rückkehr zur Startposition.
+- DOM: dauerhaftes Startbild, Überblendungs-/Zoomwerte erst nach Scrollen und vollständige Wiederherstellung beim Zurückscrollen.
+- Bestehende Kapitelsteuerung, Komponentenlinks, gemeinsame Bewegungspause, Parallax-Reset, Kartenneigung, reduzierte Bewegung, Navigation, Kabelansicht, Downloads und Anfrageformular geprüft.
+- WebGL-unavailable-Ersatzfall funktioniert; in diesem Fall bleibt das Landschaftsbild erhalten.
+- 376 interne Links und 65 Bildreferenzen ohne fehlende Ziele.
+- 44 Dateien aus public, api, lib und vercel.json byte-identisch gegenüber Version 20.
+- 33 eingebettete Dateien der eigenständigen Desktop-Vorschau byte-identisch. Keine erfassten Laufzeitfehler der Vorschauhülle.
+- 99 Dateien im Quellpaket, ohne Abhängigkeiten und Build-Ausgaben.
 
-## Grenzen der Prüfung
+## Grenzen
 
-Native SVG-Projektionen der Szenengeometrie dienten der Kontrolle von Bildausschnitt, Wellhead und Explosionsabständen. Sie zeigen weder PBR-Materialien noch GPU-Schatten. Der SVG-Renderer besitzt keinen WebGL-Tiefenpuffer; insbesondere große Bodenflächen können in diesen Kontrollbildern Vordergrundobjekte falsch überdecken. Diese Bilder sind keine Screenshots der Website und werden nicht als solche ausgeliefert.
+Das Landschaftsbild wurde visuell kontrolliert. Die prozedurale Geometrie wurde nicht erneut verändert. Der aktuelle Scrollzustand wurde numerisch und im DOM geprüft. Es fand kein echter WebGL-Browser-/GPU-Test statt; tatsächliche Bildrate, optische Überblendung, Beleuchtung und native Scroll-Animation müssen auf dem Zielgerät beurteilt werden. Der DOM-Test simuliert den nicht verfügbaren GPU-Kontext.
 
-Es fand **kein WebGL-Browser-/GPU-Test** statt. Beleuchtung, Materialwirkung, Bildrate, Sticky-Verhalten, Zeigerbedienung und endgültige Desktop-Umbrüche sind deshalb vor Veröffentlichung im Browser zu beurteilen. Im DOM-Test wurde der nicht verfügbare WebGL-Kontext gezielt simuliert, nicht der erfolgreiche GPU-Renderpfad.
-
-Kein neuer GitHub-Abgleich, keine Veröffentlichung, kein echter E-Mail-Versand. Hersteller-CAD und maßstäbliche Anlagengeometrie liegen nicht vor. Alle zusätzlichen 3D-Details sind illustrativ; keine neuen technischen Grenzwerte oder zugesagten Lieferumfänge.
+Keine Veröffentlichung, kein GitHub-Abgleich und kein E-Mail-Versand. Keine neue Handyfassung. Die technische Darstellung bleibt illustrativ und nicht maßstäblich.

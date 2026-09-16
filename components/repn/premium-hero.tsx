@@ -66,8 +66,8 @@ export function EspCanvas({playback,onStatus,onSelect}:{playback:MutableRefObjec
      frame=0;if(cancelled||lost||!visible||document.hidden)return;
      const dt=Math.min(.05,(now-(lastTime||now))/1000);lastTime=now;
      const state=playback.current;
-     current=state.reduced?chapterStops[chapterAt(state.progress)]:current+(state.progress-current)*(1-Math.exp(-dt*11));
-     if(!state.reduced&&Math.abs(current-state.progress)<.00005)current=state.progress;
+     current=state.reduced?chapterStops[chapterAt(state.progress)]:state.progress;
+     if(state.progress===0&&lastRendered===0&&!needsRender){frame=requestAnimationFrame(render);return}
      if(!state.paused&&!state.reduced)time+=dt;
      if((state.paused||state.reduced)&&!state.inspect&&!wasInspecting&&!needsRender&&Math.abs(current-lastRendered)<.00001&&Math.abs(driftX)+Math.abs(driftY)<.001){frame=requestAnimationFrame(render);return}
      const view=world.update(current,time);

@@ -1,16 +1,16 @@
-# REPN-FZCO Website – Version 20 / Desktop 3D
+# REPN-FZCO Website – Version 21 / Desktop 3D
 
-Separate Desktop-Fassung auf Basis des ausgelieferten Pakets Version 19. Noch nicht veröffentlicht. Kein neuer Abgleich mit dem aktuellen GitHub-Stand. Die vorhandenen technischen Produktseiten und Dokumente bleiben enthalten.
+Separate Desktop-Fassung auf Basis des ausgelieferten Pakets Version 20. Noch nicht veröffentlicht. Kein neuer Abgleich mit dem aktuellen GitHub-Stand. Die vorhandenen technischen Produktseiten und Dokumente bleiben enthalten.
 
-## Überarbeitung in Version 20
+## Überarbeitung in Version 21
 
-- Grundlegend neu aufgebautes Industriefeld auf rauem, felsigem Gelände, mit modellierten Bergrücken, befestigten Bohrplätzen und Zufahrten.
-- Offene Prozessanlage statt des einfachen Gebäudes: Rohrbrücken, Druckbehälter, Stege, Geländer, Leitern, Instrumente und gerippte Schalteinrichtung. Keine behauptete reale Referenzanlage.
-- Gedämpfte Gesteins-, Metall- und Sicherheitsfarben; rauere Materialien und angepasste Oberflächen-/Untertagebeleuchtung.
-- Weiterer erster Kameraausschnitt, anschließend die bestehende Reise zum Wellhead, unter die Erde und in die Explosionsdarstellung.
-- Leichte Zeigerparallaxe der Kamera, versetzte Anwendungskarten, getrennte Bild- und Textebenen sowie ein großer typografischer Zwischenabschnitt.
-- Gemeinsamer Bewegungsschalter für Parallax, Hover-Neigung und fortlaufende 3D-Animation. Systempräferenz für reduzierte Bewegung wird berücksichtigt. Keine Manipulation des normalen Mausrad-Scrolls.
-- Statische Feldgeometrie nach Material zusammengefasst. Die Szene enthält mehr geometrische Details als v19, aber weniger Mesh-Objekte; daraus wird keine gemessene Bildrate abgeleitet.
+- Das vorhandene Landschaftsbild mit See, Bergen und Rohrleitungen bleibt bei Scrollposition null dauerhaft sichtbar. Es gibt keinen zeitgesteuerten Wechsel beim Laden der 3D-Szene.
+- Erst der Seitenscroll vergrößert das Motiv leicht und blendet es über den Beginn der Reise in die 3D-Szene über. Beim Zurückscrollen erscheint es wieder vollständig.
+- Bei fehlendem WebGL bleibt das Landschaftsbild als Ersatz erhalten; die Kapitelinformationen und Produktlinks bleiben erreichbar.
+- Kamera, Kapiteltexte, Fortschrittsanzeige und Bildüberblendung verwenden einen gemeinsamen, zeitbasiert geglätteten Fortschritt. Keine doppelte Kameraverzögerung.
+- Formtreue kubische Kamerawege ersetzen die bisherige Stop-and-go-Interpolation an jedem Schlüsselpunkt. Position und Geschwindigkeit sind an den Übergängen stetig; die Achsen überschwingen nicht über ihre jeweiligen Schlüsselwerte.
+- Kapitelbuttons lösen normalen weichen Browser-Scroll aus; bei reduzierter Bewegung erfolgt die Anwahl direkt. Mausrad und Scrollbalken werden nicht abgefangen.
+- Während das Landschaftsbild an der Startposition steht, wird die verdeckte 3D-Szene nach dem ersten Bild nicht laufend neu gezeichnet. Das ist eine Codeoptimierung, kein gemessener Bildratengewinn.
 
 ## 3D-Sequenz
 
@@ -30,13 +30,13 @@ Die 3D-Szene ist schematisch, nicht maßstäblich und nicht aus Hersteller-CAD a
 
 ## Desktop-Vorschau öffnen
 
-**REPN-FZCO_v20_Desktop_3D_Vorschau.html** herunterladen und im Desktop-Browser öffnen. Die 3D-Ansicht benötigt WebGL 2. Die Datei enthält das Skript, die Geometrieerzeugung, Schriften, Bilder und Downloads und benötigt für die Vorschau keinen Webserver und kein CDN.
+**REPN-FZCO_v21_Desktop_3D_Vorschau.html** herunterladen und im Desktop-Browser öffnen. Die 3D-Ansicht benötigt WebGL 2. Die Datei enthält das Skript, die Geometrieerzeugung, Schriften, Bilder und Downloads und benötigt für die Vorschau keinen Webserver und kein CDN.
 
 Bei nicht verfügbarem WebGL erscheint ein Ersatzbild samt Hinweis; Beschreibungskapitel und Links bleiben bedienbar. Die Vorschau sendet keine E-Mails. Der echte Versand erfordert die konfigurierte Vercel-Serverfunktion.
 
 ## Im Testprojekt einsetzen
 
-1. ZIP entpacken und `REPN-FZCO_Website_v20` öffnen.
+1. ZIP entpacken und `REPN-FZCO_Website_v21` öffnen.
 2. Den **Inhalt** des Ordners in das Hauptverzeichnis des Test-Repositorys `Gazu1-dot/REPN-FEZCO` hochladen und gleichnamige Dateien ersetzen. Nicht den übergeordneten Ordner hochladen.
 3. Deployment des verbundenen Projekts `repn-fezco-test` abwarten bzw. dort aus `main` starten.
 4. Kamerafahrt, Explosionsansicht, Inspektionsmodus, Navigation und Downloads im Desktop-Browser prüfen.
@@ -55,7 +55,7 @@ Three.js 0.186.0 ist fest in den Abhängigkeiten hinterlegt. Die Szene wird im B
 
 ## Prüfstand
 
-Produktions-Build, TypeScript und ESLint bestanden. Neun Kamerakapitel, Geometrie, kontinuierliche Kameraübergänge und reversible Explosionspositionen wurden geprüft. Native SVG-Projektionen dienten der visuellen Kontrolle von Bildausschnitten und Baugruppen; sie bilden WebGL-Materialien und Schatten nicht vollständig ab. DOM-Prüfungen decken die Kapitelsteuerung, den WebGL-Ersatzfall, gemeinsame Bewegungspause, Parallax-Reset, Hover-Neigung, Navigation und Downloadziele ab.
+Produktions-Build, TypeScript und ESLint bestanden. Neun Kamerakapitel, Geometrie, kontinuierliche Kameraübergänge und reversible Explosionspositionen wurden geprüft. Die Geometrie stammt unverändert aus Version 20. Der vorhandene Landschaftshintergrund wurde kontrolliert; neue Prüfungen betreffen Scrollzustand, Überblendung und Kamerastetigkeit. DOM-Prüfungen decken die Kapitelsteuerung, den WebGL-Ersatzfall, gemeinsame Bewegungspause, Parallax-Reset, Hover-Neigung, Navigation und Downloadziele ab.
 
 **Ein echter WebGL-Browser-/GPU-Test wurde hier nicht durchgeführt.** Die tatsächliche Beleuchtung, Materialwirkung, Bildrate, Sticky-Darstellung und Mausinteraktion müssen vor Veröffentlichung auf dem Zielgerät beurteilt werden. Keine Behauptung eines bestandenen visuellen Browsertests.
 

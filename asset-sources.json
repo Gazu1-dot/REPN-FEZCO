@@ -18,7 +18,8 @@
       "tool_mode": "Built-in image_gen editing, no CLI fallback",
       "claim": "AI-generated illustrative scene. Not a documentary image of a real or REPN-owned facility.",
       "prompt": "Edit the existing geothermal field hero to look like natural industrial documentary photography. Preserve wide composition, wellheads and pipelines primarily right, volcanic landscape, distant plant, lake and mountains, clear left area for website text. Replace artificial golden sunburst and oversaturation with neutral overcast daylight, muted olive vegetation, realistic atmospheric distance, matte weathered galvanized cladding, coherent joints, concrete supports, gravel tracks and subtle imperfections. Sparse wind-dispersed steam only at the distant plant vent, no pipe leaks. Avoid glossy CGI, hyper-HDR, lens flare, green/orange grading. No text, people, logos, watermark, named site or ownership claim."
-    }
+    },
+    "usage_v21": "Persistent homepage start image at scroll position zero; scroll-driven subtle zoom and dissolve into existing procedural 3D. Original bytes unchanged; no timer-driven replacement."
   },
   {
     "asset": "manufacturing-detail.webp",
@@ -266,6 +267,7 @@
       "construction": "Rocky graded industrial wellfield; terrain ridges, structural pipe racks, open process skids, pressure vessels, platforms, railings, ladders, instruments and ribbed switchgear enclosure. Static geometry batched by material.",
       "presentation": "Revised camera framing, subdued material and light palette, bounded pointer parallax. Procedural geometry, not a generated photograph or manufacturer CAD.",
       "claims": "Illustrative environment only; no real-site attribution or additional product specifications. Existing image assets unchanged."
-    }
+    },
+    "usage_v21": "Unchanged geometry; shape-preserving cubic camera interpolation and a shared scroll timeline replace per-key stops and separate camera lag."
   }
 ]

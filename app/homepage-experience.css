@@ -141,3 +141,16 @@ body:has(.scroll-home) .site-header{background:#f0f0e9f2;border-bottom-color:#10
 @media(max-height:750px){.scroll-home .exp-copy h2{font-size:clamp(38px,4.2vw,65px)}.exp-footer{padding-bottom:16px}}
 @media(prefers-reduced-motion:reduce){.scroll-home [data-parallax]{translate:none!important}.scroll-home [data-tilt]{transform:none!important}.page-motion{display:none}.scroll-application:hover .scroll-application-image img{scale:1}}
 @media print{.page-motion,.page-reading-progress,.scroll-quicknav,.statement-outline,.statement-lines{display:none}.scroll-home [data-parallax]{translate:none!important}.scroll-statement{min-height:0;padding:35px 0;background:white}.scroll-application-image{display:none}.scroll-application,.scroll-application-oil{min-height:0;margin:0;background:white}.scroll-applications{display:block}.scroll-support-photo>img{height:300px}.scroll-intro,.scroll-support,.scroll-resources,.scroll-enquiry{padding:35px 0}}
+
+/* v21 — Photograph remains at rest; only document scroll reveals the scene. */
+.exp-poster{z-index:1;pointer-events:none;transition:none;opacity:1;overflow:hidden}
+.exp-poster img{object-position:66% 50%;transform-origin:70% 65%;transform:none;animation:none}
+.exp-webgl{z-index:0}
+.exp-scene[data-status=ready] .exp-poster{opacity:var(--landscape-opacity,1);transition:none}
+.exp-scene[data-status=ready] .exp-poster img{transform:scale(var(--landscape-scale,1))}
+.exp-scene[data-status=loading] .exp-poster,.exp-scene[data-status=unavailable] .exp-poster{opacity:1}
+.exp-stage:not([data-entered=true]) .exp-load-status{visibility:hidden}
+.exp-stage:not([data-entered=true]) .exp-view-tools{visibility:hidden}
+.exp-stage[data-landscape=true] .exp-pin{visibility:hidden!important}
+.exp-scene[data-status=ready] .exp-webgl{transition:none;opacity:1}
+@media(prefers-reduced-motion:reduce){.exp-poster img{transform:none!important}}

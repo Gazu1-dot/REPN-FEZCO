@@ -31,10 +31,28 @@ const keys:{at:number;camera:[number,number,number];target:[number,number,number
  {at:.935,camera:[11,-7,23],target:[2,-8,0]},
  {at:1,camera:[11,-1,13],target:[6.1,-3,0]},
 ];
-export function cameraState(p:number){
- let i=0;while(i<keys.length-2&&p>keys[i+1].at)i++;
- const a=keys[i],b=keys[i+1],t=between(p,a.at,b.at);
- return{position:new T.Vector3(...a.camera).lerp(new T.Vector3(...b.camera),t),target:new T.Vector3(...a.target).lerp(new T.Vector3(...b.target),t)};
+// Shared, time-based progress: camera, copy and landscape dissolve follow one timeline.
+export function smoothProgress(current:number,target:number,seconds:number){
+ const next=current+(clamp(target)-current)*(-Math.expm1(-8*Math.max(0,seconds)));
+ return Math.abs(next-target)<.000015?clamp(target):clamp(next);
+}
+export function landscapeState(progress:number,reduced=false){
+ const t=clamp(progress/.075),fade=t*t*t*(t*(t*6-15)+10);
+ return {opacity:reduced?(progress<=.000015?1:0):1-fade,scale:reduced?1:1+.065*fade};
+}
+// Shape-preserving cubic interpolation: matching velocities at camera keys, no axis overshoot.
+function tangent(index:number,axis:number,field:'camera'|'target'){
+ if(index===0||index===keys.length-1)return 0;
+ const a=keys[index-1],b=keys[index],c=keys[index+1];
+ const h0=b.at-a.at,h1=c.at-b.at,d0=(b[field][axis]-a[field][axis])/h0,d1=(c[field][axis]-b[field][axis])/h1;
+ if(d0*d1<=0)return 0;
+ const w0=2*h1+h0,w1=h1+2*h0;return(w0+w1)/(w0/d0+w1/d1);
+}
+export function cameraState(progress:number){
+ const p=clamp(progress);let i=0;while(i<keys.length-2&&p>keys[i+1].at)i++;
+ const a=keys[i],b=keys[i+1],h=b.at-a.at,t=clamp((p-a.at)/h),t2=t*t,t3=t2*t;
+ const sample=(field:'camera'|'target')=>new T.Vector3(...[0,1,2].map(axis=>(2*t3-3*t2+1)*a[field][axis]+(t3-2*t2+t)*h*tangent(i,axis,field)+(-2*t3+3*t2)*b[field][axis]+(t3-t2)*h*tangent(i+1,axis,field)) as [number,number,number]);
+ return{position:sample('camera'),target:sample('target')};
 }
 
 /** Procedural, illustrative ESP scene. Geometry is not manufacturer CAD or a dimensioned design. */
